@@ -1,69 +1,112 @@
-# Ruby CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-ruby/ for more details
-#
+defaults: &defaults
+  working_directory: ~/tutor-temple
+  parallelism: 2
+
+  docker:
+    - image: circleci/ruby:2.5.1-node-browsers
+      environment:
+        RAILS_ENV: test
+        PGHOST: 127.0.0.1
+        PGUSER: postgres
+        PG_PASSWORD: password
+        RAILS_ENV: test
+
+    - image: circleci/postgres:9.6
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_DB: tutor-temple_test
+        POSTGRES_PASSWORD: password
+
 version: 2
 jobs:
-  build:
-    docker:
-      - image: circleci/ruby:2.5.1-node-browsers
-        environment:
-          RAILS_ENV: test
-          PGHOST: 127.0.0.1
-          PGUSER: postgres
-          PG_PASSWORD: password
-          RAILS_ENV: test
-      - image: circleci/postgres:9.5
-        environment:
-          POSTGRES_USER: postgres
-          POSTGRES_DB: tutor-temple_test
-
-    working_directory: ~/repo
-
+  test:
+    <<: *defaults
     steps:
       - checkout
 
-      # Download and cache dependencies
+      - save_cache:
+          key: v2-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/tutor-temple
+
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "Gemfile.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run:
-          name: install dependencies
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
-
+            - gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - gem-cache-{{ arch }}-{{ .Branch }}
+            - gem-cache
+      - run: bundle install --path vendor/bundle
       - save_cache:
+          key: gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - ~/tutor-temple/vendor/bundle
 
       # Wait for DB
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       # Database setup
       - run: cp config/database.yml.example config/database.yml
-      - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
-      # run tests!
-      - run:
-          name: run tests
+      - run: 
+          name: Parallel Rspec
+          environment:
+            - RAILS_ENV: test
+            - RACK_ENV: test
           command: |
-            mkdir /tmp/test-results
+            mkdir -p /tmp/rspec
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-            
-            bundle exec rspec --format progress \
-                            --format RspecJunitFormatter \
-                            --out /tmp/test-results/rspec.xml \
-                            --format progress \
-                            $TEST_FILES
+            bundle exec rspec --profile 10 \
+                              --format RspecJunitFormatter \
+                              --out /tmp/rspec/rspec.xml \
+                              --format progress \
+                              -- \
+                              $TEST_FILES
 
-      # collect reports
       - store_test_results:
-          path: /tmp/test-results
+          path: /tmp/rspec
+
+      - run:
+          name: Stash Coverage Results
+          command: |
+            mkdir coverage_results
+            cp -R coverage/.resultset.json coverage_results/.resultset-${CIRCLE_NODE_INDEX}.json
+
+      - persist_to_workspace:
+          root: .
+          paths:
+            - coverage_results
+
+  coverage:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+
+      - restore_cache:
+          key: v2-repo-{{ .Environment.CIRCLE_SHA1 }}
+
+      - restore_cache:
+          keys:
+            - gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - gem-cache-{{ arch }}-{{ .Branch }}
+            - gem-cache
+
+      - run: bundle install --path vendor/bundle
+
+      - run:
+          name: Merge and check coverage
+          command: |
+            RUN_COVERAGE=true bundle exec rake simplecov:report_coverage
+
       - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+          path: ~/tutor-temple/coverage
+          destination: coverage
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+        - test
+        - coverage:
+            requires: 
+              - test
