@@ -1,24 +1,15 @@
-# README
+# Tutor Temple
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To setup local environment clone repository with:
 
-Things you may want to cover:
+`git clone git@github.com:TutorTemple/tutor-temple.git`
 
-* Ruby version
+Run `bundle install`
 
-* System dependencies
+Configure your database.yml:
 
-* Configuration
+`cp config/database.yml.example config/database.yml`
 
-* Database creation
+Setup your local database:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`rails db:setup`
