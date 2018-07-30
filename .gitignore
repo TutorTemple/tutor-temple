@@ -31,3 +31,6 @@
 /coverage
 .env.local
 .env.*.local
+
+/IDE config
+.idea/
