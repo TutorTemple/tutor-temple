@@ -3,8 +3,5 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :help, only: [:index]
-  resources :contacts, only: [:index]
-  resources :about, only: [:index]
-  resources :tutor, only: [:index], path: 'become a tutor'
+  get ':page_name', controller: :pages, action: :index, constraints: { page_name: /(about|contacts|become_a_tutor|help)/ }
 end
