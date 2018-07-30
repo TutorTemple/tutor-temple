@@ -13,4 +13,3 @@ RSpec.describe ApplicationMailer do
     it { is_expected.to match(a_hash_including(from: 'from@example.com')) }
   end
 end
-
