@@ -41,11 +41,11 @@ group :test do
   gem 'faker'
   gem 'pry'
   gem 'rails-controller-testing'
+  gem 'rspec_junit_formatter'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'webmock'
-  gem 'rspec_junit_formatter'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

@@ -94,8 +94,6 @@ GEM
     dotenv-rails (2.5.0)
       dotenv (= 2.5.0)
       railties (>= 3.2, < 6.0)
-    enumerize (2.2.2)
-      activesupport (>= 3.2)
     erubi (1.7.1)
     execjs (2.7.0)
     factory_bot (4.10.0)
@@ -301,7 +299,6 @@ DEPENDENCIES
   database_cleaner
   devise
   dotenv-rails
-  enumerize
   factory_bot_rails
   faker
   jbuilder (~> 2.5)
