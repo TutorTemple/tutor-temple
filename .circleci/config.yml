@@ -96,6 +96,7 @@ jobs:
       - run:
           name: Merge and check coverage
           command: |
+            cp config/database.yml.example config/database.yml
             RUN_COVERAGE=true bundle exec rake simplecov:report_coverage
 
       - store_artifacts:
