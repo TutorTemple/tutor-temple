@@ -21,6 +21,19 @@ h2 Sign up
     = f.label :password_confirmation
     br
     = f.password_field :password_confirmation, autocomplete: "off"
+  div.terms-and-conditions
+    h3 Terms and Conditions
+    p 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Integer vel tincidunt elit. Vivamus tristique mollis laoreet.
+      Phasellus placerat neque in odio vulputate sodales. Etiam eros purus,
+      euismod id tempus eget, aliquam nec libero. Proin condimentum odio
+      nec sapien semper lobortis. Etiam dapibus convallis luctus. Donec
+      nec euismod neque. Suspendisse potenti. Cras ac scelerisque mauris,
+      ut rutrum sem. Quisque ut dolor vulputate, varius felis a,
+      condimentum justo. In interdum convallis orci, a rutrum libero vulputate
+      ac. Duis laoreet justo ac turpis.'
+    = f.check_box :terms, type: :checkbox, id: 'terms-checkbox'
+    label for='terms-checkbox' Accept
   .actions
     = f.submit "Sign up"
 

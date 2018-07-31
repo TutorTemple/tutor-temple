@@ -10,4 +10,6 @@ class User < ApplicationRecord
   enum role: { student: 0, tutor: 1, admin: 2 }.freeze
 
   validates_presence_of :role
+  validates_acceptance_of :terms
+  attr_accessor :terms
 end
