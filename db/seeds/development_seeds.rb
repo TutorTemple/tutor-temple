@@ -10,4 +10,3 @@ if Rails.env.development?
   # Create Tutors
   FactoryBot.create_list(:tutor, 10)
 end
-
