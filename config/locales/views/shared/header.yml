@@ -3,4 +3,7 @@ en:
     header:
       title: Tutor Temple
       login: Login
+      logout: Logout
       sign_up: Sign Up
+      profile: Profile
+      profile_edit: Profile Edit

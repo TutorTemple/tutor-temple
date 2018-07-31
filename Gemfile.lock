@@ -82,6 +82,8 @@ GEM
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
     database_cleaner (1.7.0)
+    decent_exposure (3.0.2)
+      activesupport (>= 4.0)
     devise (4.4.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -103,6 +105,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.9.1)
       i18n (>= 0.7)
+    ffaker (2.10.0)
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -300,10 +303,12 @@ DEPENDENCIES
   capybara (>= 2.15, < 4.0)
   coffee-rails (~> 4.2)
   database_cleaner
+  decent_exposure
   devise
   dotenv-rails
   factory_bot_rails
   faker
+  ffaker
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
