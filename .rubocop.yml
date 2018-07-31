@@ -9,6 +9,7 @@ AllCops:
     - 'db/migrate/**'
     - log/**
     - tmp/**
+    - 'vendor/**/*'
   Rails:
     Enabled: true
 
