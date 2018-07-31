@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#index'
 
+  ActiveAdmin.routes(self)
   devise_for :users
 
   resources :dashboard
