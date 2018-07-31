@@ -2,5 +2,7 @@ doctype html
 html
   == render 'application/head'
   body
-  .container
-    == yield
+    header= render 'shared/header'
+    .container-fluid
+      == yield
+    footer= render 'shared/footer'

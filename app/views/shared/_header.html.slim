@@ -1,0 +1,8 @@
+nav.navbar.navbar-dark.bg-primary.navbar-expand-lg.fixed-top
+  .container-fluid
+    .float-lg-left
+      = link_to t('.title'), root_path, class: 'navbar-brand'
+    .float-lg-right
+      ul.navbar-nav
+        li.nav-item=> link_to t('.login'), new_user_session_path, class: 'nav-link'
+        li.nav-item= link_to t('.sign_up'), new_user_registration_path, class: 'nav-link'

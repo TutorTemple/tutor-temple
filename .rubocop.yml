@@ -1,0 +1,34 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - bin/**
+    - config/database.yml
+    - config/initializers/devise.rb
+    - db/schema.rb
+    - db/seeds.rb
+    - 'db/migrate/**'
+    - log/**
+    - tmp/**
+  Rails:
+    Enabled: true
+
+Documentation:
+  Enabled: false
+Metrics/BlockLength:
+  Max: 120
+Metrics/ClassLength:
+  Max: 120
+Metrics/LineLength:
+  Max: 120
+Metrics/MethodLength:
+  Max: 20
+Metrics/ModuleLength:
+  Max: 120
+Style/AsciiIdentifiers:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false

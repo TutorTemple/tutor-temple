@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.0'
+gem 'rails-i18n'
 gem 'sass-rails', '~> 5.0'
 gem 'slim'
 gem 'turbolinks', '~> 5'
@@ -41,11 +42,11 @@ group :test do
   gem 'faker'
   gem 'pry'
   gem 'rails-controller-testing'
+  gem 'rspec_junit_formatter'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'webmock'
-  gem 'rspec_junit_formatter'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
