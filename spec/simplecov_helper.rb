@@ -1,11 +1,11 @@
 require 'active_support/inflector'
-require "simplecov"
+require 'simplecov'
 
 class SimpleCovHelper
-  def self.report_coverage(base_dir: "./coverage_results")
+  def self.report_coverage(base_dir: './coverage_results')
     SimpleCov.start 'rails' do
       skip_check_coverage = ActiveModel::Type::Boolean.new.cast(
-        ENV.fetch("SKIP_COVERAGE_CHECK", "false"),
+        ENV.fetch('SKIP_COVERAGE_CHECK', 'false')
       )
 
       add_filter '/spec/'
