@@ -25,6 +25,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop', require: false
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -38,7 +39,6 @@ group :test do
   gem 'action-cable-testing'
   gem 'capybara', '>= 2.15', '< 4.0'
   gem 'database_cleaner'
-  gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry'
   gem 'rails-controller-testing'
