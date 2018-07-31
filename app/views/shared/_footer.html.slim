@@ -1,11 +1,11 @@
-.footer
-  .nav.navbar.navbar-expand-lg.navbar-light.bg-light
+nav.navbar.navbar-dark.bg-primary.navbar-expand-lg.fixed-bottom
+  .container-fluid
     ul.navbar-nav
-      li.nav-item.nav-link
-        = link_to t('shared.footer.tutor')
-      li.nav-item.nav-link
-        = link_to t('shared.footer.help')
-      li.nav-item.nav-link
-        = link_to t('shared.footer.about')
-      li.nav-item.nav-link
-        = link_to t('shared.footer.contacts')
+      li.nav-item
+        = link_to t('.tutor'), '/become_a_tutor', class: 'nav-link'
+      li.nav-item
+        = link_to t('.help'), '/help', class: 'nav-link'
+      li.nav-item
+        = link_to t('.about'), '/about', class: 'nav-link'
+      li.nav-item
+        = link_to t('.contacts'), '/contacts', class: 'nav-link'

@@ -1,7 +1,13 @@
 en:
   pages:
-    main: Pages Index
-    about: About
-    tutor: Become a Tutor
-    contacts: Contacts
-    help: Help
+    index:
+    landing:
+      title: Welcome to Tutor Temple
+    about:
+      title: About
+    become_a_tutor:
+      title: Become a Tutor
+    contacts:
+      title: Contacts
+    help:
+      title: Help
