@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def after_sign_in_path_for(_resource)
-    dashboard_index_path
+    if !current_user.profile
+      new_profile_path
+    else
+      dashboard_index_path
+    end
   end
 
   def authenticate_admin!

@@ -6,9 +6,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   resources :dashboard
-  resource :profile do
-    get '/', to: 'profiles#show', as: :show
-  end
+  resource :profile, only: %i[show new create edit]
 
   get ':page_name', controller: :pages,
                     action: :index,
