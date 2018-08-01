@@ -3,10 +3,6 @@ class ProfilesController < ApplicationController
 
   expose :profile, (-> { current_user.profile })
 
-  def new
-    @profile = Profile.new
-  end
-
   def create
     @profile = Profile.new(profile_params.merge(user_id: current_user.id))
     @profile.save
@@ -14,11 +10,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    if profile.update(profile_params)
-      flash[:notice] = 'Your profile successfully updated'
-    else
-      render 'profiles/edit'
-    end
+    Profile.update(profile_params)
   end
 
   private

@@ -2,3 +2,5 @@ en:
   profiles:
     show:
       title: Profile Page
+    form:
+      title: Edit Profile Page
