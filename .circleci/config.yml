@@ -40,6 +40,9 @@ jobs:
           paths:
             - ~/tutor-temple/vendor/bundle
 
+      # Rubocop
+      - run: bundle exec rubocop
+
       # Wait for DB
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
 

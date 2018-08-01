@@ -9,6 +9,7 @@ AllCops:
     - 'db/migrate/**'
     - log/**
     - tmp/**
+    - 'vendor/**/*'
   Rails:
     Enabled: true
 
@@ -24,6 +25,8 @@ Metrics/MethodLength:
   Max: 20
 Metrics/ModuleLength:
   Max: 120
+Metrics/AbcSize:
+  Enabled: false
 Style/AsciiIdentifiers:
   Enabled: false
 Style/ClassAndModuleChildren:
@@ -31,4 +34,6 @@ Style/ClassAndModuleChildren:
 Style/Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/ClassAndModuleChildren:
   Enabled: false
