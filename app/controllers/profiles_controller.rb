@@ -3,8 +3,14 @@ class ProfilesController < ApplicationController
 
   expose :profile, (-> { current_user.profile })
 
+  def new
+    @profile = Profile.new
+  end
+
   def create
-    current_user.profile.create(profile_params)
+    @profile = Profile.new(profile_params)
+    @profile.user = current_user
+    @profile.save
   end
 
   def update
