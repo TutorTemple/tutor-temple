@@ -8,9 +8,9 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(profile_params)
-    @profile.user = current_user
+    @profile = Profile.new(profile_params.merge(user_id: current_user.id))
     @profile.save
+    redirect_to dashboard_index_path
   end
 
   def update
@@ -24,6 +24,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :gender, :birthday, :phone_number, :about_me)
+    params.require(:profile).permit(:first_name, :last_name, :gender, :birthday, :phone_number, :about_me, :avatar)
   end
 end
