@@ -2,3 +2,20 @@ en:
   application:
     head:
       title: Tutor Temple
+    header:
+      title: Tutor Temple
+    nav:
+      login: Login
+      sign_up: Sign Up
+    user_nav:
+      logout: Logout
+      profile: Profile
+      profile_edit: Profile Edit
+    sidebar:
+      dashboard: Dashboard
+    footer:
+      help: Help
+      about: About
+      contacts: Contacts
+      tutor: Become a Tutor
+      howitworks: How It Works

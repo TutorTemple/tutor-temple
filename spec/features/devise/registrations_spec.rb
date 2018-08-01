@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.feature "Registrations", type: :feature do
-  context "configure_sign_up_params" do
+RSpec.feature 'Registrations', type: :feature do
+  context 'configure_sign_up_params' do
     let(:user) { build(:student) }
-    scenario "should be successful" do
+    scenario 'should be successful' do
       visit new_user_registration_path
       within('form') do
         fill_in 'Email', with: user.email
@@ -16,7 +16,7 @@ RSpec.feature "Registrations", type: :feature do
       expect(page).to have_content('Dashboard')
     end
 
-    scenario "should be failure" do
+    scenario 'should be failure' do
       visit new_user_registration_path
       within('form') do
         fill_in 'Email', with: user.email

@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.feature "New session", type: :feature do
-  context "configure_sign_in_params" do
+RSpec.feature 'New session', type: :feature do
+  context 'configure_sign_in_params' do
     let(:user) { create(:student) }
-    scenario "should be successful" do
+    scenario 'should be successful' do
       visit user_session_path
       within('form') do
         fill_in 'Email', with: user.email
@@ -13,7 +13,7 @@ RSpec.feature "New session", type: :feature do
       expect(page).to have_content('Dashboard')
     end
 
-    scenario "should be failure" do
+    scenario 'should be failure' do
       visit user_session_path
       within('form') do
         fill_in 'Email', with: user.email
