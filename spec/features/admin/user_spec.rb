@@ -19,7 +19,7 @@ RSpec.feature 'User Features', type: :feature do
       click_link 'Users'
       expect(page).to have_content(user.email)
       within "tr#user_#{user.id}" do
-        click_link "Edit"
+        click_link 'Edit'
       end
       expect(page).to have_content('Edit User')
       within('form') do
