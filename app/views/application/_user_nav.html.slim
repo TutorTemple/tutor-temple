@@ -1,0 +1,4 @@
+ul.navbar-nav
+  li.nav-item = link_to t('.profile'), new_user_session_path, class: 'nav-link'
+  li.nav-item = link_to t('.profile_edit'), new_user_registration_path, class: 'nav-link'
+  li.nav-item = link_to t('.logout'), destroy_user_session_path, method: :delete, class: 'nav-link'

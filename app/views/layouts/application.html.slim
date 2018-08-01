@@ -1,8 +1,15 @@
 doctype html
 html
   == render 'application/head'
-  body
-    header= render 'shared/header'
-    .container-fluid
-      == yield
-    footer= render 'shared/footer'
+  - if user_signed_in?
+    body.signed-in
+      = render 'application/header'
+      = render 'application/sidebar'
+      .cntainer-fluid.h-100
+        == yield
+  - else
+    body
+      = render 'application/header'
+      .container-fluid
+        == yield
+      footer= render 'application/footer'

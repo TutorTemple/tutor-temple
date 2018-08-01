@@ -1,0 +1,6 @@
+nav.navbar.navbar-dark.bg-primary.navbar-expand-lg.fixed-top
+  .container-fluid
+    .float-lg-left
+      = link_to t('.title'), root_path, class: 'navbar-brand'
+    .float-lg-right
+      = render user_signed_in? ? 'user_nav' : 'nav'

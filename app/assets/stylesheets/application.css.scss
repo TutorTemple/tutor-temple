@@ -19,6 +19,22 @@
  @import "devise";
 
 body {
-  padding-top: 70px;
-  padding-bottom: 70px;
+  padding-top: 55px;
+  padding-bottom: 55px;
+  min-height: 100vh;
+  background-color: light-gray;
+
+  &.signed-in {
+    padding-left: 10%;
+
+    #sidebar {
+      position: absolute;
+      top: 55px;
+      left: 0;
+      bottom: 0;
+      width: 10%;
+      font-size: .7em;
+      padding: 0;
+    }
+  }
 }
