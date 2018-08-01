@@ -22,6 +22,7 @@ gem 'simple_form'
 gem 'slim'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'dotenv-rails'
