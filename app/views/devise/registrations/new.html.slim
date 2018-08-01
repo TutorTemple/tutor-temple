@@ -1,23 +1,35 @@
-h2 = t('devise.labels.sign_up')
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :role, as: :radio_buttons, collection: %w[student tutor], label_method: :humanize
-    = f.input :email, type: :email, required: true, autofocus: true
-    = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
-    = f.input :password_confirmation, required: true
-    div.terms-and-conditions
-      h3 = t('devise.labels.terms')
-      p 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Integer vel tincidunt elit. Vivamus tristique mollis laoreet.
-          Phasellus placerat neque in odio vulputate sodales. Etiam eros purus,
-          euismod id tempus eget, aliquam nec libero. Proin condimentum odio
-          nec sapien semper lobortis. Etiam dapibus convallis luctus. Donec
-          nec euismod neque. Suspendisse potenti. Cras ac scelerisque mauris,
-          ut rutrum sem. Quisque ut dolor vulputate, varius felis a,
-          condimentum justo. In interdum convallis orci, a rutrum libero vulputate
-          ac. Duis laoreet justo ac turpis.'
+.authform  
+  h2 = t('devise.labels.sign_up')
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = f.error_notification
+    .form-inputs
+      = f.input :role, as: :radio_buttons, collection: %w[student tutor], label_method: :humanize, wrapper_html: { class: 'role-tabs' }, input_html: { class: 'radio-tab' }, checked: 'student'
+      = f.input :email, type: :email, required: true, autofocus: true
+      = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+      = f.input :password_confirmation, required: true
+      a href='' data-target="#termsModal" data-toggle="modal"
+        =t('devise.labels.terms')
       = f.input :terms, as: :boolean, label: t('devise.labels.accept')
-  .form-actions
-    = f.button :submit, t('devise.labels.sign_up')
-= render "devise/shared/links"
+    .form-actions
+      = f.button :submit, t('devise.labels.sign_up')
+  = render "devise/shared/links"
+
+  #termsModal.modal.fade aria-hidden="true" aria-labelledby="exampleModalLongTitle" role="dialog" tabindex="-1" 
+    .modal-dialog role="document" 
+      .modal-content
+        .modal-header
+          h5#exampleModalLongTitle.modal-title =t('devise.labels.terms')
+          button.close aria-label="Close" data-dismiss="modal" type="button" 
+            span aria-hidden="true"  &times;
+        .modal-body
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Integer vel tincidunt elit. Vivamus tristique mollis laoreet.
+            Phasellus placerat neque in odio vulputate sodales. Etiam eros purus,
+            euismod id tempus eget, aliquam nec libero. Proin condimentum odio
+            nec sapien semper lobortis. Etiam dapibus convallis luctus. Donec
+            nec euismod neque. Suspendisse potenti. Cras ac scelerisque mauris,
+            ut rutrum sem. Quisque ut dolor vulputate, varius felis a,
+            condimentum justo. In interdum convallis orci, a rutrum libero vulputate
+            ac. Duis laoreet justo ac turpis.
+        .modal-footer
+          button.btn.btn-secondary data-dismiss="modal" type="button"  Close
