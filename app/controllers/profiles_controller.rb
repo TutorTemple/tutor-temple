@@ -1,21 +1,30 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
 
-  expose :profile, (-> { current_user.profile })
+  expose :profile
 
   def create
-    @profile = Profile.new(profile_params.merge(user_id: current_user.id))
-    @profile.save
-    redirect_to dashboard_index_path
+    profile = Profile.new(profile_params)
+    if profile.save
+      redirect_to dashboard_index_path
+    else
+      render :new
+    end
   end
 
   def update
-    Profile.update(profile_params)
+    if profile.update(profile_params)
+      redirect_to profile_path
+    else
+      render :edit
+    end
   end
 
   private
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :gender, :birthday, :phone_number, :about_me, :avatar)
+    params.require(:profile).permit(
+      :first_name, :last_name, :gender, :birthday, :phone_number, :about_me, :avatar
+    ).merge(user_id: current_user.id)
   end
 end

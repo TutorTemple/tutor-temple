@@ -3,4 +3,6 @@ en:
     show:
       title: Profile Page
     form:
+      profile: Profile
       title: Edit Profile Page
+      submit: Submit
