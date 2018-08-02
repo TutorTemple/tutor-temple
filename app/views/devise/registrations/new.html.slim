@@ -1,18 +1,23 @@
 .authform  
-  h2 = t('devise.labels.sign_up')
+  h2.text-center.auth-title = t('devise.labels.sign_up')
+  .auth-tabs
+    label.auth-tab.active for='user_role_student' Student
+    label.auth-tab for='user_role_tutor' Tutor
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = f.error_notification
     .form-inputs
-      = f.input :role, as: :radio_buttons, collection: %w[student tutor], label_method: :humanize, wrapper_html: { class: 'role-tabs' }, input_html: { class: 'radio-tab' }, checked: 'student'
-      = f.input :email, type: :email, required: true, autofocus: true
-      = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
-      = f.input :password_confirmation, required: true
-      a href='' data-target="#termsModal" data-toggle="modal"
-        =t('devise.labels.terms')
-      = f.input :terms, as: :boolean, label: t('devise.labels.accept')
+      = f.input :role, as: :radio_buttons, collection: %w[student tutor], checked: 'student', wrapper_html: { class: 'd-none' }
+      = f.input :email, type: :email, required: true, autofocus: true, label: false, placeholder: 'Email'
+      = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label: false, placeholder: 'Password'
+      = f.input :password_confirmation, required: true, label: false, placeholder: 'Password confirmation'
+      .terms-wrapper
+        = f.input :terms, as: :boolean, label: t('devise.labels.accept'), wrapper_html: { class: 'terms-checkbox' }
+        a.terms-link href='' data-target="#termsModal" data-toggle="modal"
+          =t('devise.labels.terms')
     .form-actions
-      = f.button :submit, t('devise.labels.sign_up')
-  = render "devise/shared/links"
+      = f.submit t('devise.labels.sign_up'), class: 'btn btn-dark btn-block'
+    .auth-links
+      = render "devise/shared/links"
 
   #termsModal.modal.fade aria-hidden="true" aria-labelledby="exampleModalLongTitle" role="dialog" tabindex="-1" 
     .modal-dialog role="document" 

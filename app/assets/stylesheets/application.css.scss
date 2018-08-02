@@ -39,65 +39,7 @@ body {
     }
   }
 
-  .authform {
-    padding-top: 30px;
-    max-width: 320px;
-    margin: 0 auto;
-
-    form {
-      @extend .card;
-      padding: 10px;
-      @extend .bg-light;
-      @extend .small;
-    }
-    .right {
-      float: right !important;
-    }
-    .button {
-      @extend .btn;
-      @extend .btn-primary;
-    }
-
-    input.radio-tab {
-      display: none;
-
-      & + label {
-        cursor: pointer;
-        float: left;
-        border-top: 1px solid #aaa;
-        background-color: #fff;
-        padding: .5em 1em;
-            
-        &:hover {
-          background-color: #eee;
-        }
-      }
-
-      &:checked + label {
-        box-shadow: 0 3px 0 -1px #fff,
-          inset 0 5px 0 -1px #007bff;
-        background-color: #fff;
-        border-top: 0
-      }
-    }
-
-    .role-tabs {
-      .form-check {
-        padding-left: 0px;
-      }
-    }
-  }
-
-  #error_explanation:not(:empty) {
-    @extend .alert;
-    @extend .alert-danger;
-  }
-  #error_explanation h2 {
-    font-size: 16px;
-  }
-  .button-xs {
-    @extend .btn;
-    @extend .btn-primary;
-    @extend .btn-sm;
+  input {
+    border-radius: 0 !important;
   }
 }
