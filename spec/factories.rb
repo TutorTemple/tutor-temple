@@ -11,7 +11,7 @@ FactoryBot.define do
   sequence(:phone)          { Faker::Number.number(10) }
   sequence(:gender)         { Faker::Gender.binary_type }
   sequence(:birthday)       { Faker::Date.birthday }
-  sequence(:avatar)         { File.open("#{Rails.root}/spec/files/avatar.png") }
+  # sequence(:avatar)         { File.open("#{Rails.root}/spec/files/avatar.png") }
 
   factory :user do
     email
@@ -36,6 +36,6 @@ FactoryBot.define do
     last_name
     gender
     birthday
-    avatar
+    # avatar
   end
 end
