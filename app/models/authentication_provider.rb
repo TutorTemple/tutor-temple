@@ -1,0 +1,2 @@
+class AuthenticationProvider < ApplicationRecord
+end

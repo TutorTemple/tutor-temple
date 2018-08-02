@@ -3,6 +3,9 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :authentication_provider do
+    name "MyString"
+  end
   sequence(:email)          { Faker::Internet.email }
   sequence(:first_name)     { Faker::Name.first_name }
   sequence(:last_name)      { Faker::Name.last_name }
