@@ -1,29 +1,29 @@
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!
-
-  expose :profile, (-> { current_user.profile })
-
-  def new
-    @profile = Profile.new
-  end
+  skip_before_action :check_profile_completion, only: :new
+  expose :profile, (-> { Profile.find_or_initialize_by(user_id: current_user.id) })
 
   def create
-    @profile = Profile.new(profile_params.merge(user_id: current_user.id))
-    @profile.save
-    redirect_to dashboard_index_path
+    profile = Profile.new(profile_params)
+    if profile.save
+      redirect_to dashboard_index_path
+    else
+      render :new
+    end
   end
 
   def update
     if profile.update(profile_params)
-      flash[:notice] = 'Your profile successfully updated'
+      redirect_to profile_path
     else
-      render 'profiles/edit'
+      render :edit
     end
   end
 
   private
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :gender, :birthday, :phone_number, :about_me, :avatar)
+    params.require(:profile).permit(
+      :first_name, :last_name, :gender, :birthday, :phone_number, :about_me, :avatar
+    ).merge(user_id: current_user.id)
   end
 end

@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!
-
-  expose :profile, (-> { current_user.profile })
+  skip_before_action :check_profile_completion
 
   def index; end
 end

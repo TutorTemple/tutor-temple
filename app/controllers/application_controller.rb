@@ -3,13 +3,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   before_action :authenticate_user!
+  before_action :check_profile_completion
 
-  def after_sign_in_path_for(_resource)
-    if !current_user.profile
-      new_profile_path
-    else
-      dashboard_index_path
-    end
+  expose :current_profile, (-> { current_user&.profile })
+
+  private
+
+  def check_profile_completion
+    redirect_to new_profile_path unless current_profile.present? || devise_controller?
   end
 
   def authenticate_admin!
