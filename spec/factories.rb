@@ -38,4 +38,8 @@ FactoryBot.define do
     birthday
     avatar
   end
+
+  factory :subject do
+    name
+  end
 end
