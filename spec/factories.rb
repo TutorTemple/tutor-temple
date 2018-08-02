@@ -9,7 +9,7 @@ FactoryBot.define do
   sequence(:name)           { Faker::Name.name }
   sequence(:password)       { '1pas$Word' }
   sequence(:phone)          { Faker::Number.number(10) }
-  sequence(:gender)         { 'male' }
+  sequence(:gender)         { Faker::Gender.binary_type.downcase }
   sequence(:birthday)       { Faker::Date.birthday }
   sequence(:avatar)         { File.open("#{Rails.root}/spec/files/avatar.png") }
 

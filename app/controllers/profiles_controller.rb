@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
 
-  expose :profile
+  expose :profile, (-> { Profile.find_or_initialize_by(user_id: current_user.id) })
 
   def create
     profile = Profile.new(profile_params)
