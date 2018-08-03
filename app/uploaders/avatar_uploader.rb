@@ -6,8 +6,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
     'local_files/default_avatar'
   end
 
-  version :medium do
-    resize_to_fit(42, 42)
+  version :small do
+    resize_to_fit(30, 30)
   end
 
   def extension_white_list

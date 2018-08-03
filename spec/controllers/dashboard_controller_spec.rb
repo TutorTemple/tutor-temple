@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe DashboardController, type: :controller do
-  let(:user) { create(:user, role: 'student') }
+  let(:user) { profile.user }
+  let(:profile) { create :profile }
 
   subject { response }
 

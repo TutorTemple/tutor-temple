@@ -1,0 +1,10 @@
+en:
+  profiles:
+    show:
+      title: Profile Page
+    form:
+      profile: Profile
+      title: Edit Profile Page
+      submit: Submit
+    error:
+      birthday_error: cannot be in future
