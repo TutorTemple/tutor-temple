@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature 'New session', type: :feature do
   context 'configure_sign_in_params' do
     let(:user) { create(:student) }
+
     scenario 'should be successful' do
       visit user_session_path
       within('form') do
