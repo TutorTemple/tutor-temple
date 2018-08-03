@@ -67,8 +67,21 @@ body {
     background-color: white;
     color: $gray-700;
   }
+
   input[type='radio']:checked + label.auth-tab {
     background-color: $blue;
     color: white;
+  }
+
+  .social-signup .social-buttons {
+    display: none;
+  }
+
+  input#user_role_tutor:checked ~ .social-signup .social-buttons#tutor_buttons {
+    display: block
+  }
+
+  input#user_role_student:checked ~ .social-signup .social-buttons#student_buttons {
+    display: block;
   }
 }

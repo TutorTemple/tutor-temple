@@ -19,7 +19,14 @@
             = f.submit t('devise.labels.sign_up'), class: 'btn btn-dark btn-block'
           .pt-2.small= render "devise/shared/links"
         .col-md-6.p-4.d-flex.flex-wrap.align-items-center.justify-content-center.social-signup
-          .social-buttons
+          .social-buttons#tutor_buttons
+            = link_to '', class: 'btn btn-block btn-facebook text-white' do
+              => fa_icon 'facebook'
+              = t('devise.labels.facebook_signin')
+            = link_to '', class: 'btn btn-block btn-google text-white' do
+              => fa_icon 'google'
+              = t('devise.labels.google_signin')
+          .social-buttons#student_buttons
             = link_to '', class: 'btn btn-block btn-facebook text-white' do
               => fa_icon 'facebook'
               = t('devise.labels.facebook_signin')
