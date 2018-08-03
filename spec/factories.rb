@@ -40,4 +40,8 @@ FactoryBot.define do
     gender
     birthday
   end
+
+  factory :subject do
+    name
+  end
 end
