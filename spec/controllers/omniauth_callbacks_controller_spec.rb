@@ -14,11 +14,22 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
         user_params: user_params
       ).and_return(user)
   end
-  let(:user) { create(:student) }
-
+  
   describe '#create_and_sign_in' do
     subject { get :facebook }
+    
+    context "successful signup" do
+      let(:user) { create(:student) }
 
-    it { is_expected.to redirect_to(root_path) }
+      it { is_expected.to redirect_to(root_path) }
+    end
+    
+    context "failed signup" do
+      let(:user) { build(:user, role: nil) }
+      
+      it { is_expected.to redirect_to(new_user_registration_path) }
+    end
   end
+
+  
 end
