@@ -8,3 +8,5 @@ en:
       submit: Submit
     error:
       birthday_error: cannot be in future
+      names: only allows letters
+      phone_number: only allows number
