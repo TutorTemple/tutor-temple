@@ -2,7 +2,7 @@ namespace :create do
   desc 'create users'
   task users: :environment do
     user = User.create(
-      email: 'student@gmail.com',
+      email: 'student@example.com',
       password: '12341234',
       role: 'student'
     )
@@ -14,7 +14,7 @@ namespace :create do
     )
 
     user = User.create(
-      email: 'tutor@gmail.com',
+      email: 'tutor@example.com',
       password: '12341234',
       role: 'tutor'
     )
@@ -26,7 +26,7 @@ namespace :create do
     )
 
     user = User.create(
-      email: 'admin@gmail.com',
+      email: 'admin@example.com',
       password: '12341234',
       role: 'admin'
     )
