@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Registrations', type: :feature do
   context 'configure_sign_up_params' do
     let(:user) { build(:student) }
+
     scenario 'should be successful' do
       visit new_user_registration_path
       within('form') do
