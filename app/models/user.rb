@@ -9,8 +9,6 @@ class User < ApplicationRecord
 
   enum role: { student: 0, tutor: 1, admin: 2 }.freeze
 
-  accepts_nested_attributes_for :profile
-
   delegate :first_name, :last_name, :gender, :birthday, :avatar, to: :profile
 
   validates_presence_of :role
