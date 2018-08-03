@@ -10,7 +10,7 @@ RSpec.feature 'New subject', type: :feature do
         fill_in 'Email', with: user.email
         fill_in 'Password', with: user.password
       end
-      click_on 'Log in'
+      click_on 'Log In'
       visit '/admin'
       expect(page).to have_content('Dashboard')
     end
