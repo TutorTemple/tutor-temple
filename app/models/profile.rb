@@ -8,6 +8,8 @@ class Profile < ApplicationRecord
   enum gender: { male: 0, female: 1 }.freeze
 
   validates :first_name, :last_name, :gender, :birthday, presence: true
+  validates :first_name, :last_name, format: { with: /\A[a-zA-Z]+\z/, message: I18n.t('profiles.error.names') },
+                                     length: { in: 2..15 }
   validate :not_future_birthday
 
   private
