@@ -14,16 +14,16 @@
  *= require_self
  */
 
- // Custom bootstrap variables must be set or imported *before* bootstrap.
- @import "bootstrap";
- @import "devise";
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap/custom";
+@import "bootstrap";
+@import "variables";
 @import "font-awesome";
 
 body {
   padding-top: 55px;
   padding-bottom: 55px;
   min-height: 100vh;
-  background-color: light-gray;
 
   &.signed-in {
     padding-left: 10%;
@@ -37,5 +37,51 @@ body {
       font-size: .7em;
       padding: 0;
     }
+  }
+
+  input {
+    border-radius: 0 !important;
+  }
+
+  h1, h2 {
+    font-weight: bold;
+  }
+
+  .btn {
+    border-radius: 0;
+  }
+
+  .btn-facebook {
+    background-color: $facebook;
+  }
+
+  .btn-google {
+    background-color: $google;
+  }
+}
+
+.auth-tabs {
+  .auth-tab {
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color: white;
+    color: $gray-700;
+  }
+
+  input[type='radio']:checked + label.auth-tab {
+    background-color: $blue;
+    color: white;
+  }
+
+  .social-signup .social-buttons {
+    display: none;
+  }
+
+  input#user_role_tutor:checked ~ .social-signup .social-buttons#tutor_buttons {
+    display: block
+  }
+
+  input#user_role_student:checked ~ .social-signup .social-buttons#student_buttons {
+    display: block;
   }
 }

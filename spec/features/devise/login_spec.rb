@@ -8,7 +8,7 @@ RSpec.feature 'New session', type: :feature do
       within('form') do
         fill_in 'Email', with: user.email
         fill_in 'user_password', with: user.password
-        click_on 'Log in'
+        click_on 'Log In'
       end
       expect(page).to have_content('Dashboard')
     end
@@ -18,7 +18,7 @@ RSpec.feature 'New session', type: :feature do
       within('form') do
         fill_in 'Email', with: user.email
         fill_in 'user_password', with: '1111111'
-        click_on 'Log in'
+        click_on 'Log In'
       end
       expect(page).to have_content('Forgot your password?')
     end

@@ -1,0 +1,23 @@
+.row.pt-3
+  .col-2
+  .col-8
+    h2.text-center= t('.log_in')
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .row.auth-tabs.bg-primary.text-white
+        = f.error_notification
+        .col-md-6.p-4
+          .form-inputs
+            = f.input :email, required: false, autofocus: true, label: false, placeholder: 'Email'
+            = f.input :password, required: false, label: false, placeholder: t('.password')
+            = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+          .form-actions
+            = f.button :submit, t('.log_in'), class: "btn btn-dark btn-block"
+          .pt-2.small= render "devise/shared/links"
+        .col-md-6.p-4.d-flex.flex-wrap.align-items-center.justify-content-center.social-signup
+          .social-buttons
+            = link_to '', class: 'btn btn-block btn-facebook text-white' do
+              => fa_icon 'facebook'
+              = t('devise.labels.facebook_signin')
+            = link_to '', class: 'btn btn-block btn-google text-white' do
+              => fa_icon 'google'
+              = t('devise.labels.google_signin')
