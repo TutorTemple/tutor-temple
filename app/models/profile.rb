@@ -14,6 +14,6 @@ class Profile < ApplicationRecord
 
   def not_future_birthday
     return unless birthday
-    errors.add(:birthday, t('profiles.error.birthday_error')) if birthday > Time.now
+    errors.add(:birthday, message: I18n.t('profiles.error.birthday_error')) if birthday > Time.now
   end
 end

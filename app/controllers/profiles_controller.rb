@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  skip_before_action :check_profile_completion, only: :new
+  skip_before_action :check_profile_completion, only: %i[new create]
   expose :profile, (-> { Profile.find_or_initialize_by(user_id: current_user.id) })
 
   def create
