@@ -10,8 +10,7 @@ namespace :create do
       first_name: 'Marko',
       last_name: 'Polo',
       gender: 'male',
-      birthday: '11/11/1990',
-      avatar: File.open("#{Rails.root}/spec/files/avatar.png")
+      birthday: '11/11/1990'
     )
 
     user = User.create(
@@ -23,8 +22,7 @@ namespace :create do
       first_name: 'Franko',
       last_name: 'Tolo',
       gender: 'male',
-      birthday: '11/11/1960',
-      avatar: File.open("#{Rails.root}/spec/files/avatar.png")
+      birthday: '11/11/1960'
     )
 
     user = User.create(
@@ -36,8 +34,7 @@ namespace :create do
       first_name: 'Alis',
       last_name: 'Dola',
       gender: 'female',
-      birthday: '11/11/1980',
-      avatar: File.open("#{Rails.root}/spec/files/avatar.png")
+      birthday: '11/11/1980'
     )
   end
 end
