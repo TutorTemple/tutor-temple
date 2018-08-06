@@ -1,0 +1,61 @@
+h2.text-center.p-2
+  | Teacher profile
+.row.pt-3
+  .col-2
+  .col-8
+
+    div.d-flex.flex-row
+      div.p-2
+        .rounded-circle
+          = cl_image_tag(profile.avatar.medium)
+      div.d-flex.flex-column
+        div.p-2
+          = profile.full_name
+          i.fa.fa-star
+        div.p-2
+          | Subjects: Mathematics, Computer Science
+        div.p-2
+          | Short description: 
+          = profile.about_me
+
+        div.d-flex.flex-row
+          div.p-2
+            | Lessons conducted: 404
+          div.p-2
+            | Reviews: 201
+          div.p-2
+            i.fa.fa-play-circle
+            | Video introduction
+        
+        div.d-flex.flex-row
+          div.p-2
+            | Email:
+            = profile.email
+          div.p-2
+            | Phone:
+            = profile.phone_number
+
+      div.d-flex.flex-row
+        d-flex.flex-column
+          div.p-2
+            .button.btn.btn-success
+              | + Add as Friend
+          div.p-2
+            .button.btn.btn-warning
+              | Send email
+          div.p-2
+            .button.btn.btn-warning
+              | Call
+    
+    .button.btn.btn-primary.btn-lg
+      i.fa.fa-calendar
+      | Schedule lesson
+    .button.btn.btn-primary.btn-lg
+      i.fa.fa-calendar
+      | Schedule lesson trial
+    .button.btn.btn-primary.btn-lg
+      i.fa.fa-video
+      | Instant tutoring
+    .button.btn.btn-primary.btn-lg
+      i.fa.fa-edit
+      | Reviews
