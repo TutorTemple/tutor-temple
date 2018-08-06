@@ -29,7 +29,7 @@ class User < ApplicationRecord
           user_id: new_user.id,
           first_name: auth_params['info']['first_name'],
           last_name: auth_params['info']['last_name'],
-          avatar: auth_params['info']['image'],
+          remote_avatar_url: auth_params['info']['image'],
       ).save(validate: false)
       new_user
     end
