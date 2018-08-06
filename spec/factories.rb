@@ -39,6 +39,8 @@ FactoryBot.define do
     last_name
     gender
     birthday
+    languages %w[en uk]
+    time_zone Time.zone.name
   end
 
   factory :subject do

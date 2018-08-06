@@ -49,6 +49,7 @@ group :test do
   gem 'capybara', '>= 2.15', '< 4.0'
   gem 'database_cleaner'
   gem 'faker'
+  gem 'launchy'
   gem 'pry'
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'

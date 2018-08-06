@@ -23,7 +23,9 @@ class ProfilesController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(
-      :first_name, :last_name, :gender, :birthday, :phone_number, :about_me, :avatar
-    ).merge(user_id: current_user.id)
+      :first_name, :last_name, :gender, :birthday, :phone_number, :about_me, :avatar, :time_zone, languages: []
+    ).merge(user_id: current_user.id).tap do |permitted_params|
+      permitted_params[:languages]&.reject!(&:blank?)
+    end
   end
 end

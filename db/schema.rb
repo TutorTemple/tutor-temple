@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_01_141400) do
+ActiveRecord::Schema.define(version: 2018_08_06_064317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2018_08_01_141400) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
+    t.jsonb "meta"
     t.index ["birthday"], name: "index_profiles_on_birthday"
     t.index ["first_name"], name: "index_profiles_on_first_name"
     t.index ["gender"], name: "index_profiles_on_gender"
