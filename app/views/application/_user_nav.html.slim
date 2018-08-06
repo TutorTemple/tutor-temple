@@ -2,7 +2,7 @@ ul.navbar-nav
   li.nav-item.dropdown
     div.d-flex.flex-row data-toggle="dropdown"
       div.thumbnail
-        = cl_image_tag(current_profile.avatar)
+        = cl_image_tag(current_profile.avatar)  if current_profile
       .dropdown-toggle
     .dropdown-menu.dropdown-menu-right
       = link_to t('.settings'), edit_user_registration_path, class: 'dropdown-item'
