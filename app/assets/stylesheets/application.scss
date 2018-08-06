@@ -19,6 +19,7 @@
 @import "bootstrap";
 @import "variables";
 @import "font-awesome";
+@import "settings_page";
 
 body {
   padding-top: 55px;
@@ -79,5 +80,20 @@ body {
 
   input#user_role_student:checked ~ .social-signup .social-buttons#tutor_buttons {
     display: none;
+  }
+}
+
+.thumbnail {
+  width: 45px;
+  height: 45px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  img {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+    min-width: 45px;
   }
 }

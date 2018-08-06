@@ -1,7 +1,9 @@
 ul.navbar-nav
   li.nav-item.dropdown
-    .dropdown-toggle data-toggle="dropdown"
-      = cl_image_tag(current_profile.avatar.small)
+    div.d-flex.flex-row data-toggle="dropdown"
+      div.thumbnail
+        = cl_image_tag(current_profile.avatar)
+      .dropdown-toggle
     .dropdown-menu.dropdown-menu-right
       = link_to t('.settings'), edit_user_registration_path, class: 'dropdown-item'
       = link_to t('.profile'), profile_path, class: 'dropdown-item'
