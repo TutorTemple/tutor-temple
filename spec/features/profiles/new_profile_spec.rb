@@ -27,7 +27,7 @@ RSpec.feature 'New profile', type: :feature do
         find('#profile_languages').select('English')
         find('#profile_languages').select('German')
         find('#profile_time_zone').select('Central America')
-        click_on 'Submit'
+        click_on 'Save Profile'
       end
       expect(page).to have_content('Dashboard')
     end
@@ -39,11 +39,11 @@ RSpec.feature 'New profile', type: :feature do
         fill_in 'profile_last_name', with: ''
         fill_in 'profile_phone_number', with: '122324'
         fill_in 'profile_birthday', with: '11/11/2019'
+        choose 'profile_gender_male'
         find('#profile_languages').select('English')
         find('#profile_languages').select('German')
         find('#profile_time_zone').select('Central America')
-        choose 'profile_gender_male'
-        click_on 'Submit'
+        click_on 'Save Profile'
       end
       expect(page).to have_current_path(profile_path)
     end
