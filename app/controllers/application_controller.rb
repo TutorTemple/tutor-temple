@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   private
 
   def check_profile_completion
-    redirect_to new_profile_path unless current_profile.present? || devise_controller?
+    redirect_to new_profile_path unless current_profile&.valid? || devise_controller?
   end
 
   def authenticate_admin!

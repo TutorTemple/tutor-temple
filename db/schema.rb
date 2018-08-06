@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 2018_08_06_064317) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
+  create_table "authentication_providers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_authentication_providers_on_name"
+  end
+
   create_table "profile_subjects", id: false, force: :cascade do |t|
     t.bigint "profile_id"
     t.bigint "subject_id"
@@ -40,10 +47,10 @@ ActiveRecord::Schema.define(version: 2018_08_06_064317) do
     t.bigint "user_id"
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.integer "gender", null: false
+    t.integer "gender"
     t.string "phone_number"
     t.text "about_me"
-    t.date "birthday", null: false
+    t.date "birthday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
@@ -61,6 +68,19 @@ ActiveRecord::Schema.define(version: 2018_08_06_064317) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_subjects_on_name"
+  end
+
+  create_table "user_authentications", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "authentication_provider_id"
+    t.string "uid"
+    t.string "token"
+    t.datetime "token_expires_at"
+    t.text "params"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["authentication_provider_id"], name: "index_user_authentications_on_authentication_provider_id"
+    t.index ["user_id"], name: "index_user_authentications_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -84,4 +104,6 @@ ActiveRecord::Schema.define(version: 2018_08_06_064317) do
   add_foreign_key "profile_subjects", "profiles"
   add_foreign_key "profile_subjects", "subjects"
   add_foreign_key "profiles", "users"
+  add_foreign_key "user_authentications", "authentication_providers"
+  add_foreign_key "user_authentications", "users"
 end

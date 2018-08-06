@@ -11,6 +11,8 @@ AllCops:
     - log/**
     - tmp/**
     - 'vendor/**/*'
+    - 'spec/support/**/*'
+    - 'spec/factories.rb'
   Rails:
     Enabled: true
 

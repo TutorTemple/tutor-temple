@@ -73,15 +73,11 @@ body {
     color: white;
   }
 
-  .social-signup .social-buttons {
+  input#user_role_tutor:checked ~ .social-signup .social-buttons#student_buttons {
     display: none;
   }
 
-  input#user_role_tutor:checked ~ .social-signup .social-buttons#tutor_buttons {
-    display: block
-  }
-
-  input#user_role_student:checked ~ .social-signup .social-buttons#student_buttons {
-    display: block;
+  input#user_role_student:checked ~ .social-signup .social-buttons#tutor_buttons {
+    display: none;
   }
 }
