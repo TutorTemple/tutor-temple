@@ -11,4 +11,12 @@ RSpec.describe Profile, type: :model do
     it { is_expected.to validate_presence_of(:gender) }
     it { is_expected.to validate_presence_of(:birthday) }
   end
+
+  describe '#full_name' do
+    let(:profile) { create(:profile, first_name: 'Anna', last_name: 'Brown') }
+
+    subject { profile.full_name }
+
+    it { is_expected.to eq('Anna Brown') }
+  end
 end
