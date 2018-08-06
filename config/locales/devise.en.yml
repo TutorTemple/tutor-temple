@@ -6,6 +6,7 @@ en:
       links:
         already_member: "Already a Tutor Temple member? Log In"
         sign_up: "Sign Up"
+        not_a_member: "Not a Tutor Temple member? Sign Up"
         forgot_password: "Forgot your password?"
         confirmation_instructions: "Didn't receive confirmation instructions?"
         unlock_instructions: "Didn't receive unlock instructions?"
