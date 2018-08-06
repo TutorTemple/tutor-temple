@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  skip_before_action :check_profile_completion, only: %i[new create]
+  skip_before_action :check_profile_completion, only: %i[new create update]
   expose :profile, (-> { Profile.find_or_initialize_by(user_id: current_user.id) })
 
   def create
@@ -23,9 +23,11 @@ class ProfilesController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(
-      :first_name, :last_name, :gender, :birthday, :phone_number, :about_me, :avatar, :time_zone, languages: []
+      :first_name, :last_name, :gender, :birthday, :phone_number,
+      :about_me, :avatar, :time_zone, languages: [], subject_ids: []
     ).merge(user_id: current_user.id).tap do |permitted_params|
       permitted_params[:languages]&.reject!(&:blank?)
+      permitted_params[:subject_ids]&.reject!(&:blank?)
     end
   end
 end

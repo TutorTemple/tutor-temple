@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature 'New profile', type: :feature do
   context 'create new user' do
     let(:user) { build(:student) }
+    let!(:subject) { create(:subject) }
 
     before(:each) do
       visit new_user_registration_path
@@ -27,6 +28,7 @@ RSpec.feature 'New profile', type: :feature do
         find('#profile_languages').select('English')
         find('#profile_languages').select('German')
         find('#profile_time_zone').select('Central America')
+        find('#profile_subject_ids').select(subject.name)
         click_on 'Save Profile'
       end
       expect(page).to have_content('Dashboard')
@@ -43,6 +45,7 @@ RSpec.feature 'New profile', type: :feature do
         find('#profile_languages').select('English')
         find('#profile_languages').select('German')
         find('#profile_time_zone').select('Central America')
+        find('#profile_subject_ids').select(subject.name)
         click_on 'Save Profile'
       end
       expect(page).to have_current_path(profile_path)

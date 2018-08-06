@@ -10,6 +10,7 @@ h2 = t('.profile')
   = f.input :languages, collection: Languages::ALL_LANGUAGES.invert, selected: profile.languages || 'en', include_blank: false, input_html: { multiple: true }
   = f.input :about_me
   = f.input :time_zone, as: :time_zone, priority: /#{Time.zone.name}/, include_blank: false
+  = f.association :subjects
   = f.file_field :avatar
   = f.button :submit, t('.submit')
 end
