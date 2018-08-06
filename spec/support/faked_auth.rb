@@ -14,7 +14,7 @@ class FakedAuth
       },
       'credentials' => {
         'token' => 'CAAXG7M01etEBAMdqZA0zLj7T9bkh7cNR1aRS424Enkcix2MvMui671aXTSGmjOPU8TpOIGE6dLLkMPTPfBcshaW66HgioMsd2mEj1NbBtQVV2SNg1lhFT5johChlx79jZCRV75ZBPxWNMjZBxinJrfuoNfiZB0PCTYs8gRAEcep8PyOZCl2PuIn9ZBzse5mGJrG5Fjql2emu7vdLsEBaKjG',
-        'expires_at' => 1439455058,
+        'expires_at' => 1_439_455_058,
         'expires' => true
       },
       'extra' => {
@@ -48,7 +48,7 @@ class FakedAuth
       },
       'credentials' => {
         'token' => 'ya29.kgHeQGheb1uydYXPrtTAVsmKX0HSAzIFeceMC9aC9OTBHttIySzFzjmf8N_lUagqUmCtIH2e0fSk1g',
-        'expires_at' => 1434290777,
+        'expires_at' => 1_434_290_777,
         'expires' => true
       },
       'extra' => {

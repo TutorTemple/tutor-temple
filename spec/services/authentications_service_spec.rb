@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe AuthenticationService do
   describe 'create' do
     let(:auth_params) { OpenStruct.new(FakedAuth.new.facebook_data) }
-    let(:user_params) { OpenStruct.new({ 'role': 'student' }) }
+    let(:user_params) { OpenStruct.new('role': 'student') }
     let(:data) { { auth_params: auth_params, user_params: user_params, current_user: current_user } }
     let!(:provider) { create(:facebook_provider) }
 

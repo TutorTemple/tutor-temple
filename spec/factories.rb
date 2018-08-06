@@ -8,7 +8,7 @@ FactoryBot.define do
     authentication_provider nil
   end
   factory :authentication_provider do
-    name "MyString"
+    name 'MyString'
   end
   sequence(:email)          { Faker::Internet.email }
   sequence(:first_name)     { Faker::Name.first_name }

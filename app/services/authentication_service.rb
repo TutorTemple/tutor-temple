@@ -4,7 +4,7 @@ class AuthenticationService < BaseService
   def self.create(args)
     new(args).create
   end
-  
+
   def create
     if authentication
       authentication.user

@@ -6,7 +6,8 @@ class User < ApplicationRecord
   has_many :authentications, class_name: 'UserAuthentication', dependent: :destroy
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
   enum role: { student: 0, tutor: 1, admin: 2 }.freeze
 
@@ -18,7 +19,6 @@ class User < ApplicationRecord
 
   class << self
     def create_from_omniauth(auth_params, user_params)
-      # binding.pry
       attributes = {
         email: auth_params['info']['email'],
         password: Devise.friendly_token[0, 20],
