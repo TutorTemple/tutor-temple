@@ -4,10 +4,10 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
       t.belongs_to :user, index: true, foreign_key: true
       t.string :first_name, index: true, null: false
       t.string :last_name, index: true, null: false
-      t.integer :gender, index: true, null: false
+      t.integer :gender, index: true
       t.string :phone_number, index: true
       t.text :about_me
-      t.date :birthday, index: true, null: false
+      t.date :birthday, index: true
       t.timestamps
     end
   end

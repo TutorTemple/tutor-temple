@@ -6,13 +6,7 @@ class AuthenticationService < BaseService
   end
 
   def create
-    if authentication
-      authentication.user
-    elsif user
-      create_authentication(auth_params, user, provider).user
-    else
-      create_authentication(auth_params, create_user(auth_params), provider).user
-    end
+    (authentication || create_authentication(auth_params, user, provider))&.user
   end
 
   private
@@ -26,7 +20,7 @@ class AuthenticationService < BaseService
   end
 
   def user
-    @user ||= current_user || User.find_by(email: auth_params['info']['email'])
+    @user ||= current_user || User.find_by(email: auth_params['info']['email']) || create_user(auth_params)
   end
 
   def create_authentication(auth_params, user, provider)

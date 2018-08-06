@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   expose :profile, (-> { Profile.find_or_initialize_by(user_id: current_user.id) })
 
   def create
-    profile = Profile.new(profile_params)
+    profile.assign_attributes(profile_params)
     if profile.save
       redirect_to dashboard_index_path
     else

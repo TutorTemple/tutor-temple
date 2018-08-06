@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 2018_08_06_064317) do
     t.bigint "user_id"
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.integer "gender", null: false
+    t.integer "gender"
     t.string "phone_number"
     t.text "about_me"
-    t.date "birthday", null: false
+    t.date "birthday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"

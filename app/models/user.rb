@@ -1,15 +1,15 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, 
+         :validatable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+  
+  enum role: { student: 0, tutor: 1, admin: 2 }.freeze
 
   has_one :profile, dependent: :destroy
   has_many :authentications, class_name: 'UserAuthentication', dependent: :destroy
-
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook google_oauth2]
-
-  enum role: { student: 0, tutor: 1, admin: 2 }.freeze
 
   delegate :first_name, :last_name, :gender, :birthday, :avatar, to: :profile
 
@@ -19,17 +19,19 @@ class User < ApplicationRecord
 
   class << self
     def create_from_omniauth(auth_params, user_params)
-      attributes = {
+      new_user = create(
         email: auth_params['info']['email'],
         password: Devise.friendly_token[0, 20],
         role: user_params['role'],
-        # profile_attributes: {
-        #   first_name: auth_params['info']['first_name'],
-        #   last_name: auth_params['info']['last_name'],
-        #   remote_avatar_url: auth_params['info']['image']
-        # }
-      }
-      create(attributes)
+      )
+      return new_user unless new_user.valid?
+      Profile.new(
+          user_id: new_user.id,
+          first_name: auth_params['info']['first_name'],
+          last_name: auth_params['info']['last_name'],
+          avatar: auth_params['info']['image'],
+      ).save(validate: false)
+      new_user
     end
   end
 end
