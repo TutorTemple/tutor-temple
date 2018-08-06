@@ -10,3 +10,19 @@ en:
       birthday_error: cannot be in future
       names: only allows letters
       phone_number: only allows number
+    tutor_profile:
+      title: Tutor profile
+    student_profile:
+      title: Student profile
+      email: Email
+      phone: Phone
+      online_status: Online Status
+      gender: Gender
+      birthday: Birthday
+      about_me: About Me
+      friends_list: Friends List
+      teachers_list: Teachers List
+      liking_posts: Liking posts
+      commenting: Commenting on posts
+      sharing: Sharing posts
+      deletation: Deletion

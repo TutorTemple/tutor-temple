@@ -1,1 +1,4 @@
-h2.text-center= t('.title')
+- if current_user.student?
+  = render 'profiles/student_profile'
+- if current_user.tutor?
+  = render 'profiles/tutor_profile'

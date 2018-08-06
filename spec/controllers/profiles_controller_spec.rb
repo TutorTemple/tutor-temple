@@ -8,6 +8,12 @@ RSpec.describe ProfilesController, type: :controller do
 
   before { sign_in user, scope: :user }
 
+  describe '#show' do
+    subject { get :show }
+
+    it { is_expected.to render_template(:show) }
+  end
+
   describe '#create' do
     let(:params) { { profile: attributes_for(:profile, user_id: user) } }
 

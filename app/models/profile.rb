@@ -15,6 +15,12 @@ class Profile < ApplicationRecord
                                      length: { in: 2..15 }
   validate :not_future_birthday
 
+  delegate :email, to: :user
+
+  def full_name
+    [first_name, last_name].join(' ')
+  end
+
   private
 
   def not_future_birthday
