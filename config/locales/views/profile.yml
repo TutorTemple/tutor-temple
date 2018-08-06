@@ -5,10 +5,7 @@ en:
     form:
       profile: Profile
       title: Edit Profile Page
-      submit: Submit
-      first_name: First name
-      last_name: Last name
-      phone: Phone
+      submit: Save Profile
     error:
       birthday_error: cannot be in future
       names: only allows letters

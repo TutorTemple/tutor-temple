@@ -39,7 +39,7 @@ FactoryBot.define do
     last_name
     gender
     birthday
-    languages ['en', 'uk']
+    languages %w[en uk]
     time_zone Time.zone.name
   end
 

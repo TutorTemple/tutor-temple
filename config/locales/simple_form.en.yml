@@ -10,6 +10,19 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
+    labels:
+      defaults:
+        first_name: First name
+        last_name: Last name
+        phone_number: Phone
+        languages: Spoken Languages
+    placeholders:
+      defaults:
+        first_name: Your first name
+        last_name: Your last name
+        phone_number: Your phone number
+        languages: Select languages
+
     # Examples
     # labels:
     #   defaults:
