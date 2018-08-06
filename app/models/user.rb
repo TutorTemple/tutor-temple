@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, 
+         :recoverable, :rememberable, :trackable,
          :validatable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
-  
+
   enum role: { student: 0, tutor: 1, admin: 2 }.freeze
 
   has_one :profile, dependent: :destroy
@@ -22,14 +22,14 @@ class User < ApplicationRecord
       new_user = create(
         email: auth_params['info']['email'],
         password: Devise.friendly_token[0, 20],
-        role: user_params['role'],
+        role: user_params['role']
       )
       return new_user unless new_user.valid?
       Profile.new(
-          user_id: new_user.id,
-          first_name: auth_params['info']['first_name'],
-          last_name: auth_params['info']['last_name'],
-          remote_avatar_url: auth_params['info']['image'],
+        user_id: new_user.id,
+        first_name: auth_params['info']['first_name'],
+        last_name: auth_params['info']['last_name'],
+        remote_avatar_url: auth_params['info']['image']
       ).save(validate: false)
       new_user
     end
