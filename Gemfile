@@ -48,6 +48,7 @@ group :test do
   gem 'action-cable-testing'
   gem 'capybara', '>= 2.15', '< 4.0'
   gem 'database_cleaner'
+  gem 'launchy'
   gem 'faker'
   gem 'pry'
   gem 'rails-controller-testing'
