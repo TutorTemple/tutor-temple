@@ -6,7 +6,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if user.valid?
       sign_in_and_redirect user
     else
-      flash[:error] = user.errors.full_messages.first
+      flash[:alert] = user.errors.full_messages.first
       redirect_to new_user_registration_path
     end
   end
