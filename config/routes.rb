@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   resource :profile, except: %i[index destroy]
   resources :tutors, only: %i[show]
 
+  # get 'searches/index'
+
+  get 'search', action: :index, controller: 'searches'
+
   get ':page_name', controller: :pages,
                     action: :index,
                     constraints: { page_name: /(about|contacts|become_a_tutor|help|howitworks)/ }

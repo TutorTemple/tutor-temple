@@ -13,8 +13,6 @@ AllCops:
     - 'vendor/**/*'
     - 'spec/support/**/*'
     - 'spec/factories.rb'
-  Rails:
-    Enabled: true
 
 Documentation:
   Enabled: false
@@ -29,8 +27,6 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
   Max: 120
 Metrics/AbcSize:
-  Enabled: false
-Style/AsciiIdentifiers:
   Enabled: false
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact

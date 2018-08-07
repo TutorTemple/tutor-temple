@@ -1,0 +1,37 @@
+.row-flex.pt-3
+  .col-2
+  .col-8
+    h2 Search
+
+    = form_tag search_path, method: :get do
+      .input-group.mb-3
+        = text_field_tag :search_query, params[:search_query], class: 'form-control', placeholder: 'Find a tutor...'
+        .input-group-append
+          = submit_tag "Search", name: nil, class: 'btn btn-primary'
+
+    - @profiles.each do |profile|
+      .card.my-3
+        .media.p-3
+          = image_tag profile.avatar.url(:medium), class: 'align-self-center mr-3 rounded-circle'
+          .media-body
+            .row
+              .col-9
+                h3.mt-0.d-inline-block = profile.full_name
+                .p-2.d-inline-block
+                  - (1..5).each do
+                    li.fa.fa-star
+                .row
+                  .col
+                    h5.d-inline-block Subjects:&nbsp
+                    - profile.subjects.each do |subject|
+                      span = subject.name
+                      | &nbsp;
+                .row
+                  .col
+                    h5 Short description:
+                    p = profile.about_me
+                div
+                  | Lessons counted:&nbsp;
+                  span 404
+              .col-3.d-flex.align-items-end
+                button.btn.btn-primary type="button"  View profile

@@ -24,6 +24,11 @@ class Profile < ApplicationRecord
   delegate :email, :role, to: :user
 
   scope :only_tutors, (-> { where(users: { role: :tutor }) })
+  scope :search_profiles, (lambda do |search_query|
+    left_outer_joins(:subjects)
+      .where('first_name ILIKE :q OR last_name ILIKE :q OR subjects.name ILIKE :q', q: "%#{search_query}%")
+      .group('profiles.id')
+  end)
 
   def full_name
     [first_name, last_name].join(' ')
