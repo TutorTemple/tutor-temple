@@ -1,0 +1,11 @@
+h2= t('.title')
+.d-flex.flex-column-reverse.tabs
+  #account.tab-content.w-100.p-4.bg-white= render 'account_settings_form', resource: current_user
+  #privacy.tab-content.w-100.p-4.bg-white
+    h3= t('.privacy_settings')
+  #notifications.tab-content.w-100.p-4.bg-white
+    h3= t('.notifications_settings')
+  ul.nav.nav-tabs.w-100
+    li.nav-item= link_to 'Account Settings', '#account', class: 'nav-link', data: {turbolinks: false}
+    li.nav-item= link_to 'Privacy settings', '#privacy', class: 'nav-link', data: {turbolinks: false}
+    li.nav-item= link_to 'Notification settings', '#notifications', class: 'nav-link', data: {turbolinks: false}

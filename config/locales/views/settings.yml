@@ -1,0 +1,7 @@
+en:
+  settings:
+    show:
+      title: Settings
+      account_settings: Account Settings
+      privacy_settings: Privacy Settings
+      notifications_settings: Notifications Settings
