@@ -15,7 +15,9 @@ en:
       schedule_lessons_trial: Schedule lessons trial
       instant_tutoring: Instant tutoring
       reviews: Reviews
-      lessons: Lessons
       lesson_description: 'Description: '
+    lessons_list:
+      lessons: Lessons
       tutor: 'Tutor: '
       lesson_details: 'Lesson details'
+      description: 'Description: '
