@@ -4,7 +4,7 @@ en:
       title: Teacher profile
       subjects: 'Subjects: '
       description: 'Short description: '
-      lessons: 'Lessons conducted: '
+      lessons_conducted: 'Lessons conducted: '
       video_introduction: Video introduction
       email: 'Email: '
       phone: 'Phone: '
@@ -15,3 +15,7 @@ en:
       schedule_lessons_trial: Schedule lessons trial
       instant_tutoring: Instant tutoring
       reviews: Reviews
+      lessons: Lessons
+      lesson_description: 'Description: '
+      tutor: 'Tutor: '
+      lesson_details: 'Lesson details'

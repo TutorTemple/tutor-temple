@@ -17,9 +17,12 @@
             .p-1.mt-1
               - (1..5).each do
                 li.fa.fa-star
-          
+
           .p-1.font-weight-bold
             = t('.subjects')
+            - profile.subjects.each do |subject|
+              = subject.name
+              | &nbsp;
           .p-1.font-weight-bold
             = t('.description')
             = profile.about_me
@@ -27,7 +30,7 @@
           .lesson-block
             .d-flex.flex-row
               .p-1.col-5
-                = t('.lessons')
+                = t('.lessons_conducted')
               .p-1.col-3
                 = t('.reviews')
               .p-1.col-4
@@ -54,14 +57,48 @@
 
       .d-flex.justify-content-center
         .button.btn.btn-primary.btn-block.mt-2.mr-2
-          i.fa.fa-calendar.px-3
+          i.fa.fa-calendar.px-2
           = t('.schedule_lessons')
         .button.btn.btn-primary.btn-block.mr-2
-          i.fa.fa-calendar.px-3
+          i.fa.fa-calendar.px-2
           = t('.schedule_lessons_trial')
         .button.btn.btn-primary.btn-block.mr-2
-          i.fa.fa-calendar.px-3
+          i.fa.fa-calendar.px-2
           = t('.instant_tutoring')
         .button.btn.btn-primary.btn-block.mr-0
-          i.fa.fa-file.px-3
+          i.fa.fa-file.px-2
           = t('.reviews')
+
+- profile.subjects.each do |subject|
+  .row.mr-0.pt-2  
+    .col-1
+    .col-10.p-2
+      h3.p-2
+        = t('.lessons')
+
+      .teacher-profile-block
+        .d-flex.flex-row
+          .p-1.col-9
+            h5 Lesson title
+          .p-1.col-3.text-right
+            i.fa.fa-calendar.p-2
+            | 12/12/2018 00:00
+
+        .d-flex.flex-row
+          .p-1.col-9
+            .d-flex.flex-column
+              = subject.name
+            .d-flex.flex-column
+              = t('.tutor')
+              = profile.full_name
+            .d-flex.flex-column
+              | Description:
+              = profile.about_me
+            .d-flex.flex-column
+              i.fa.fa-paperclip
+          
+          .p-1.col-3.text-right
+            | $ 50
+            .d-flex.flex-column
+              .button.btn.btn-primary.mt-4
+                = t('.lesson_details')
