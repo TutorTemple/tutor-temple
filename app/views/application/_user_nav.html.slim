@@ -1,11 +1,10 @@
 ul.navbar-nav
   li.nav-item.dropdown
-    div.d-flex.flex-row data-toggle="dropdown"
-      div.thumbnail
-        = cl_image_tag(current_profile.avatar)  if current_profile
-      .dropdown-toggle
+    .d-flex.flex-row.justify-content-center.align-items-center data-toggle="dropdown"
+      .dropdown-toggle.m-1
+      .thumbnail= cl_image_tag(current_profile.avatar.small)  if current_profile
     .dropdown-menu.dropdown-menu-right
-      = link_to t('.settings'), edit_user_registration_path, class: 'dropdown-item'
+      = link_to t('.settings'), settings_path, class: 'dropdown-item'
       = link_to t('.profile'), profile_path, class: 'dropdown-item'
       = link_to t('.profile_edit'), edit_profile_path, class: 'dropdown-item'
       .dropdown-divider

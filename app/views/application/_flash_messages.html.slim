@@ -1,0 +1,7 @@
+#flash
+  - flash.select { |_k, v| v.is_a? String }.each do |type, message|
+    div class="alert alert-dismissable bg-#{type == 'alert' ? 'danger' : 'success'}" role="alert"
+      button.close aria-hidden="true" data-dismiss="alert" type="button"
+        i.fa.fa-times
+      = message
+

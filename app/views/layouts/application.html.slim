@@ -4,12 +4,14 @@ html
   - if user_signed_in?
     body.signed-in
       = render 'application/header'
+      = render 'application/flash_messages'
       = render 'application/sidebar'
-      .container-fluid.h-100
+      .container-fluid.h-100.p-4.position-relative
         == yield
   - else
     body
       = render 'application/header'
-      .container-fluid
+      = render 'application/flash_messages'
+      .container-fluid.h-100.p-4.position-relative
         == yield
       footer= render 'application/footer'
