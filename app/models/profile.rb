@@ -21,8 +21,6 @@ class Profile < ApplicationRecord
     [first_name, last_name].join(' ')
   end
 
-  scope :only_tutors, (-> { where(role: 'tutor') })
-
   private
 
   def not_future_birthday
