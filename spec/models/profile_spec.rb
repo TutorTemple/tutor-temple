@@ -4,6 +4,9 @@ RSpec.describe Profile, type: :model do
   describe 'associations' do
     it { is_expected.to belong_to(:user) }
     it { is_expected.to have_many(:work_experiences).dependent(:destroy) }
+    it { is_expected.to have_many(:profile_subjects) }
+    it { is_expected.to have_many(:certifications).dependent(:destroy) }
+    it { is_expected.to have_many(:subjects).through(:profile_subjects) }
   end
 
   describe 'validations' do
@@ -11,6 +14,7 @@ RSpec.describe Profile, type: :model do
     it { is_expected.to validate_presence_of(:last_name) }
     it { is_expected.to validate_presence_of(:gender) }
     it { is_expected.to validate_presence_of(:birthday) }
+    it { accept_nested_attributes_for(:certifications) }
   end
 
   describe '#full_name' do
