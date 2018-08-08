@@ -2,14 +2,8 @@ require 'rails_helper'
 
 RSpec.feature 'Search', type: :feature do
   context 'search for profiles' do
-    let(:profile) { create(:profile) }
-    let(:other_profile) { create(:profile) }
-    let!(:profile_subject) { create(:subject) }
-    let!(:other_profile_subject) { create(:subject) }
-    let!(:with_subject) do
-      profile.subjects << profile_subject
-      other_profile.subjects << other_profile_subject
-    end
+    let(:profile) { create(:profile, :with_subject) }
+    let(:other_profile) { create(:profile, :with_subject) }
 
     before(:each) do
       visit search_path
@@ -26,7 +20,7 @@ RSpec.feature 'Search', type: :feature do
 
     scenario 'should find second profile' do
       within('form') do
-        fill_in 'search_query', with: other_profile_subject.name
+        fill_in 'search_query', with: other_profile.subjects.first.name
         click_on 'Search'
       end
       expect(page).to have_content(other_profile.full_name)

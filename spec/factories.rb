@@ -60,6 +60,10 @@ FactoryBot.define do
     birthday
     languages %w[en uk]
     time_zone Time.zone.name
+
+    trait :with_subject do
+      subjects { build_list :subject, 3 }
+    end
   end
 
   factory :subject do
