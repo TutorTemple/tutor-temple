@@ -10,16 +10,13 @@
               li.fa.fa-star
           .row
             .col
-              h5.d-inline-block Subjects:&nbsp
-              - profile.subjects.each do |subject|
-                span = subject.name
-                | &nbsp;
+              h5.d-inline-block = t('.subject_list', subjects: profile.subjects.map(&:name).join(', '))
           .row
             .col
-              h5 Short description:
+              h5 = "#{t('.short_description')}: "
               p = profile.about_me
           div
-            | Lessons counted:&nbsp;
+            = "#{t('.lessons_counted')}: "
             span 404
         .col-3.d-flex.align-items-end
           button.btn.btn-primary type="button"  View profile
