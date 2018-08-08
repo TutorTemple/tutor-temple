@@ -6,7 +6,7 @@ RSpec.feature 'New session', type: :feature do
 
     scenario 'should be successful' do
       visit user_session_path
-      within('form') do
+      within('.container-fluid:nth-child(2) form') do
         fill_in 'Email', with: user.email
         fill_in 'user_password', with: user.password
         click_on 'Log In'
@@ -16,7 +16,7 @@ RSpec.feature 'New session', type: :feature do
 
     scenario 'should be failure' do
       visit user_session_path
-      within('form') do
+      within('.container-fluid:nth-child(2) form') do
         fill_in 'Email', with: user.email
         fill_in 'user_password', with: '1111111'
         click_on 'Log In'

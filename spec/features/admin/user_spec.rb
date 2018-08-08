@@ -6,7 +6,7 @@ RSpec.feature 'User Features', type: :feature do
 
     before(:each) do
       visit '/users/sign_in'
-      within('form') do
+      within('.container-fluid:nth-child(2) form') do
         fill_in 'Email', with: user.email
         fill_in 'Password', with: user.password
       end

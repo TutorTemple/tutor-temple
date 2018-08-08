@@ -6,7 +6,7 @@ RSpec.feature 'Registrations', type: :feature do
 
     scenario 'should be successful' do
       visit new_user_registration_path
-      within('form') do
+      within('.container-fluid:nth-child(2) form') do
         fill_in 'Email', with: user.email
         fill_in 'user_password', with: user.password
         fill_in 'user_password_confirmation', with: user.password
@@ -19,7 +19,7 @@ RSpec.feature 'Registrations', type: :feature do
 
     scenario 'should be failure' do
       visit new_user_registration_path
-      within('form') do
+      within('.container-fluid:nth-child(2) form') do
         fill_in 'Email', with: user.email
         fill_in 'user_password', with: user.password
         fill_in 'user_password_confirmation', with: user.password

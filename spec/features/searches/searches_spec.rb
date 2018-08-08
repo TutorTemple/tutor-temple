@@ -10,7 +10,7 @@ RSpec.feature 'Search', type: :feature do
     end
 
     scenario 'should find first profile' do
-      within('form') do
+      within('.container-fluid:nth-child(2) form') do
         fill_in 'search_query', with: profile.first_name
         click_on 'Search'
       end
@@ -19,7 +19,7 @@ RSpec.feature 'Search', type: :feature do
     end
 
     scenario 'should find second profile' do
-      within('form') do
+      within('.container-fluid:nth-child(2) form') do
         fill_in 'search_query', with: other_profile.subjects.first.name
         click_on 'Search'
       end

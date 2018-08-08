@@ -7,7 +7,7 @@ RSpec.feature 'New profile', type: :feature do
 
     before(:each) do
       visit new_user_registration_path
-      within('form') do
+      within('.container-fluid:nth-child(2) form') do
         fill_in 'Email', with: user.email
         fill_in 'user_password', with: user.password
         fill_in 'user_password_confirmation', with: user.password
@@ -19,7 +19,7 @@ RSpec.feature 'New profile', type: :feature do
 
     scenario 'should be successful' do
       visit new_profile_path
-      within('form') do
+      within('.container-fluid.h-100 form') do
         fill_in 'profile_first_name', with: 'Marko'
         fill_in 'profile_last_name', with: 'Polo'
         fill_in 'profile_phone_number', with: '122324'
@@ -41,7 +41,7 @@ RSpec.feature 'New profile', type: :feature do
 
     scenario 'should be failure' do
       visit new_profile_path
-      within('form') do
+      within('.container-fluid.h-100 form') do
         fill_in 'profile_first_name', with: 'Marko'
         fill_in 'profile_last_name', with: ''
         fill_in 'profile_phone_number', with: '122324'
