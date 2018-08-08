@@ -27,6 +27,8 @@ RSpec.describe Profile, type: :model do
 
   describe '.search_profiles' do
     let(:profile) { create(:profile, first_name: 'Joe', last_name: 'Brown') }
+    let!(:profile_subject) { create(:subject) }
+    let!(:with_subject) { profile.subjects << profile_subject }
 
     let!(:params) { 'Jo' }
 
@@ -37,8 +39,6 @@ RSpec.describe Profile, type: :model do
     end
 
     context 'search profile by subject' do
-      let!(:profile_subject) { create(:subject) }
-      let!(:with_subject) { profile.subjects << profile_subject }
       let!(:params) { profile_subject.name }
 
       it { is_expected.to include(profile) }
