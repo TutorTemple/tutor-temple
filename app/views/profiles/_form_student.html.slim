@@ -1,0 +1,16 @@
+h2 Student profile
+= simple_form_for profile, url: url_for(action: action) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :phone_number
+  = f.input :birthday, as: :date, html5: true
+  = f.input :gender, as: :radio_buttons, collection: %w[male female], label_method: :humanize
+  = f.input :languages, collection: Languages::ALL_LANGUAGES.invert, selected: profile.languages || 'en', include_blank: false, input_html: { multiple: true }
+  = f.input :about_me
+  = f.input :time_zone, as: :time_zone, priority: /#{Time.zone.name}/, include_blank: false
+  = f.association :subjects
+  = f.file_field :avatar
+  = f.button :submit, 'Save Profile'
+end
