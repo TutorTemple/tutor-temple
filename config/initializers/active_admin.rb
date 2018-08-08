@@ -147,6 +147,8 @@ ActiveAdmin.setup do |config|
   #
   # config.before_action :do_something_awesome
 
+  config.skip_before_action :check_profile_completion
+
   # == Localize Date/Time Format
   #
   # Set the localize format to display dates and times.

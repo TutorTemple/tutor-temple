@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :authentications, class_name: 'UserAuthentication', dependent: :destroy
 
-  delegate :first_name, :last_name, :full_name, :gender, :birthday, :avatar, to: :profile
+  delegate :first_name, :last_name, :full_name, :gender, :birthday, :avatar, to: :profile, allow_nil: true
 
   validates_presence_of :role
   validates_acceptance_of :terms
