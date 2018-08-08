@@ -55,6 +55,7 @@ group :test do
   gem 'database_cleaner'
   gem 'faker'
   gem 'launchy'
+  gem 'poltergeist'
   gem 'pry'
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'

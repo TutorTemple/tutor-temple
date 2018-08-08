@@ -88,6 +88,7 @@ GEM
       mime-types (>= 1.16)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
+    cliver (0.3.2)
     cloudinary (1.8.2)
       aws_cf_signer
       rest-client
@@ -230,6 +231,10 @@ GEM
     parser (2.5.1.2)
       ast (~> 2.4.0)
     pg (1.0.0)
+    poltergeist (1.18.1)
+      capybara (>= 2.1, < 4)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     polyamorous (1.3.3)
       activerecord (>= 3.0)
     popper_js (1.14.3)
@@ -429,6 +434,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-google-oauth2
   pg (>= 0.18, < 2.0)
+  poltergeist
   pry
   pry-byebug
   pry-rails
