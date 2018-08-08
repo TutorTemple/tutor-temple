@@ -11,6 +11,10 @@ h2 = t('.profile')
   = f.input :about_me
   = f.input :time_zone, as: :time_zone, priority: /#{Time.zone.name}/, include_blank: false
   = f.association :subjects
+  = f.simple_fields_for :educations do |education|
+    = render 'education_fields', f: education
+  .links
+    = link_to_add_association 'add education', f, :educations
   = f.file_field :avatar
   = f.simple_fields_for :certifications do |certification|
     = render 'certification_fields', f: certification

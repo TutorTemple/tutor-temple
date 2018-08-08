@@ -12,6 +12,7 @@
 //
 //= require jquery3
 //= require popper
+//= require cocoon
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require rails-ujs
