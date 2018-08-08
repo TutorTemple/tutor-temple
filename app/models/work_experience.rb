@@ -9,13 +9,12 @@ class WorkExperience < ApplicationRecord
   private
 
   def not_future_date
-    return unless start_date
-    errors.add(:start_date, message: 'Invalid date') if start_date > Time.now
-    errors.add(:end_date, message: 'Invalid date') if end_date > Time.now
+    errors.add(:start_date, :must_be_in_past) if start_date && start_date > Time.now
+    errors.add(:end_date, :must_be_in_past) if end_date && end_date > Time.now
   end
 
   def start_date_before_end_date
     return unless end_date
-    errors.add(:end_date, message: 'Invalid date') if start_date > end_date
+    errors.add(:start_date, :must_be_before_end_date) if start_date > end_date
   end
 end
