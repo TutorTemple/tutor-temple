@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :dashboard
 
   resource :profile, except: %i[index destroy]
+  resources :tutors, only: %i[show]
 
   get ':page_name', controller: :pages,
                     action: :index,

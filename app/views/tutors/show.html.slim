@@ -1,0 +1,71 @@
+.row.mr-0.pt-2
+  .col-1
+  .col-10.p-2
+    h2.text-center.p-2
+      = t('.title')
+
+    .teacher-profile-block
+      .d-flex.flex-row
+        .d-flex.flex-column.col-2
+          .rounded-circle.p-3
+            = cl_image_tag(profile.avatar.medium)
+
+        .d-flex.flex-column.col-8
+          .d-flex.flex-row
+            .p-1
+              h4 = profile.full_name
+            .p-1.mt-1
+              - (1..5).each do
+                li.fa.fa-star
+
+          .p-1
+            = t('.subjects')
+            - profile.subjects.each do |subject|
+              = subject.name
+              | &nbsp;
+          .p-1
+            = t('.description')
+            = profile.about_me
+
+          .lesson-block
+            .d-flex.flex-row
+              .p-1.col-5
+                = t('.lessons_conducted')
+              .p-1.col-3
+                = t('.reviews')
+              .p-1.col-4
+                i.fa.fa-play-circle.px-2
+                = t('.video_introduction')
+
+            .d-flex.flex-row
+              .p-1.col-5
+                = t('.email')
+                = profile.email
+              .p-1.col-4
+                = t('.phone')
+                = profile.phone_number
+
+        .d-flex.flex-column.col-2.px-0
+          .button.btn.btn-success.btn-block
+            = t('.add_friend')
+          = mail_to profile.email, class: 'btn btn-warning btn-block' do
+            = fa_icon :envelope, text:  t('.send_email')
+          = mail_to "tel:#{profile.phone_number}", class: 'btn btn-warning btn-block' do
+            = fa_icon :phone, text:  t('.call')
+
+
+      .d-flex.justify-content-center
+        .button.btn.btn-primary.btn-block.mt-2.mr-2
+          i.fa.fa-calendar.px-2
+          = t('.schedule_lessons')
+        .button.btn.btn-primary.btn-block.mr-2
+          i.fa.fa-calendar.px-2
+          = t('.schedule_lessons_trial')
+        .button.btn.btn-primary.btn-block.mr-2
+          i.fa.fa-calendar.px-2
+          = t('.instant_tutoring')
+        .button.btn.btn-primary.btn-block.mr-0
+          i.fa.fa-file.px-2
+          = t('.reviews')
+
+= render 'lessons_list'

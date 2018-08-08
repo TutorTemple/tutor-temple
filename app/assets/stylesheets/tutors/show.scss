@@ -1,0 +1,13 @@
+@import "variables";
+
+.teacher-profile-block {
+  padding: 10px;
+  background-color: $pure-white;
+  border-radius: 3px;
+  box-shadow: 0 0 10px 0 rgba(202, 189, 189, 0.5);
+}
+
+.lesson-block {
+  font-size: 13px;
+  font-weight: 600;
+}

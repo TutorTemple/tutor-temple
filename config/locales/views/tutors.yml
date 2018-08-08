@@ -1,0 +1,23 @@
+en:
+  tutors:
+    show:
+      title: Teacher profile
+      subjects: 'Subjects: '
+      description: 'Short description: '
+      lessons_conducted: 'Lessons conducted: '
+      video_introduction: Video introduction
+      email: 'Email: '
+      phone: 'Phone: '
+      add_friend: + Add as Friend
+      send_email: Send email
+      call: Call
+      schedule_lessons: Schedule lessons
+      schedule_lessons_trial: Schedule lessons trial
+      instant_tutoring: Instant tutoring
+      reviews: Reviews
+      lesson_description: 'Description: '
+    lessons_list:
+      lessons: Lessons
+      tutor: 'Tutor: '
+      lesson_details: 'Lesson details'
+      description: 'Description: '

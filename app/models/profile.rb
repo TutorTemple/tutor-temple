@@ -16,7 +16,9 @@ class Profile < ApplicationRecord
                                      length: { in: 2..15 }
   validate :not_future_birthday
 
-  delegate :email, to: :user
+  delegate :email, :role, to: :user
+
+  scope :only_tutors, (-> { where(users: { role: :tutor }) })
 
   def full_name
     [first_name, last_name].join(' ')
