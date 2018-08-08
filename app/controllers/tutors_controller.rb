@@ -1,3 +1,3 @@
 class TutorsController < ApplicationController
-  expose :profile
+  expose :profile, scope: -> { Profile.includes(:user).only_tutors }, id: -> { params[:id] }
 end
