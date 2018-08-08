@@ -12,12 +12,17 @@ FactoryBot.define do
   end
   sequence(:email)          { Faker::Internet.email }
   sequence(:first_name)     { Faker::Name.first_name }
-  sequence(:last_name)      { Faker::Name.last_name }
-  sequence(:name)           { Faker::Name.name }
+  sequence(:last_name)      { Faker::Cat.name }
+  sequence(:name)           { Faker::Fallout.character }
   sequence(:password)       { '1pas$Word' }
   sequence(:phone)          { Faker::Number.number(10) }
   sequence(:gender)         { Faker::Gender.binary_type.downcase }
   sequence(:birthday)       { Faker::Date.birthday }
+  sequence(:company_name)   { Faker::Company.name }
+  sequence(:title)          { Faker::Fallout.character }
+  sequence(:location)       { Faker::Fallout.location }
+  sequence(:start_date)     { Faker::Date.between(2.years.ago, 1.years.ago) }
+  sequence(:end_date)       { Faker::Date.between(2.month.ago, 1.month.ago) }
 
   factory :user do
     email
@@ -52,6 +57,14 @@ FactoryBot.define do
 
   factory :subject do
     name
+  end
+
+  factory :work_experience do
+    company_name
+    title
+    location
+    start_date
+    end_date
   end
 
   factory :facebook_provider, class: AuthenticationProvider do
