@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_06_064317) do
+ActiveRecord::Schema.define(version: 2018_08_08_080836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,9 +101,26 @@ ActiveRecord::Schema.define(version: 2018_08_06_064317) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "work_experiences", force: :cascade do |t|
+    t.bigint "profile_id"
+    t.string "company_name", null: false
+    t.string "title", null: false
+    t.string "location", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.boolean "current_workplace"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_name"], name: "index_work_experiences_on_company_name"
+    t.index ["location"], name: "index_work_experiences_on_location"
+    t.index ["profile_id"], name: "index_work_experiences_on_profile_id"
+    t.index ["title"], name: "index_work_experiences_on_title"
+  end
+
   add_foreign_key "profile_subjects", "profiles"
   add_foreign_key "profile_subjects", "subjects"
   add_foreign_key "profiles", "users"
   add_foreign_key "user_authentications", "authentication_providers"
   add_foreign_key "user_authentications", "users"
+  add_foreign_key "work_experiences", "profiles"
 end

@@ -1,4 +1,4 @@
-h2 = t('.profile')
+h2 Student profile
 = simple_form_for profile, url: url_for(action: action) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
@@ -12,4 +12,5 @@ h2 = t('.profile')
   = f.input :time_zone, as: :time_zone, priority: /#{Time.zone.name}/, include_blank: false
   = f.association :subjects
   = f.file_field :avatar
-  = f.button :submit, t('.submit')
+  = f.button :submit, 'Save Profile'
+

@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    errors:
+      models:
+        work_experience:
+          attributes:
+            start_date:
+              must_be_in_past: 'Starting date must be in past'
+              must_be_before_end_date: 'Starting date must be before ending date'
+            end_date:
+              must_be_in_past: 'Starting date must be in past'
