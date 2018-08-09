@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.feature 'Search', type: :feature do
   context 'search for profiles' do
-    let(:profile) { create(:profile, :with_subject) }
-    let(:other_profile) { create(:profile, :with_subject) }
+    let!(:profile) { create(:profile, :with_subject) }
+    let!(:other_profile) { create(:profile, :with_subject) }
 
     before(:each) do
       visit search_path

@@ -62,7 +62,7 @@ FactoryBot.define do
     time_zone Time.zone.name
 
     trait :with_subject do
-      subjects { build_list :subject, 3 }
+      subjects { create_list :subject, 1 }
     end
   end
 
