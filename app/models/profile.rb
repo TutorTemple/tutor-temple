@@ -21,6 +21,8 @@ class Profile < ApplicationRecord
                                      length: { in: 2..15 }
   validate :not_future_birthday
 
+  validates :educations, presence: true
+
   delegate :email, :role, to: :user
 
   scope :only_tutors, (-> { where(users: { role: :tutor }) })
