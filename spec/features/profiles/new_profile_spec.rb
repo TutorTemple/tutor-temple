@@ -29,6 +29,7 @@ RSpec.feature 'New profile', type: :feature do
         find('#profile_languages').select('German')
         find('#profile_time_zone').select('Central America')
         find('#profile_subject_ids').select(subject.name)
+        attach_file('profile[avatar]', Rails.root + 'spec/files/avatar.png')
         click_on 'Save Profile'
       end
       expect(page).to have_content('Dashboard')
@@ -46,6 +47,7 @@ RSpec.feature 'New profile', type: :feature do
         find('#profile_languages').select('German')
         find('#profile_time_zone').select('Central America')
         find('#profile_subject_ids').select(subject.name)
+        attach_file('profile[avatar]', Rails.root + 'spec/files/test.pdf')
         click_on 'Save Profile'
       end
       expect(page).to have_current_path(profile_path)

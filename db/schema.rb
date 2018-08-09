@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_08_080836) do
+ActiveRecord::Schema.define(version: 2018_08_08_091335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,20 @@ ActiveRecord::Schema.define(version: 2018_08_08_080836) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_authentication_providers_on_name"
+  end
+
+  create_table "certifications", force: :cascade do |t|
+    t.bigint "profile_id"
+    t.string "name", null: false
+    t.string "institution", null: false
+    t.string "attachment"
+    t.date "termination_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["institution"], name: "index_certifications_on_institution"
+    t.index ["name"], name: "index_certifications_on_name"
+    t.index ["profile_id"], name: "index_certifications_on_profile_id"
+    t.index ["termination_date"], name: "index_certifications_on_termination_date"
   end
 
   create_table "profile_subjects", id: false, force: :cascade do |t|
@@ -117,6 +131,7 @@ ActiveRecord::Schema.define(version: 2018_08_08_080836) do
     t.index ["title"], name: "index_work_experiences_on_title"
   end
 
+  add_foreign_key "certifications", "profiles"
   add_foreign_key "profile_subjects", "profiles"
   add_foreign_key "profile_subjects", "subjects"
   add_foreign_key "profiles", "users"

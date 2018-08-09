@@ -6,6 +6,9 @@ en:
       profile: Profile
       title: Edit Profile Page
       submit: Save Profile
+      add_certification: + Add Certification
+    certification_fields:
+      remove: Remove
     error:
       birthday_error: cannot be in future
       names: only allows letters

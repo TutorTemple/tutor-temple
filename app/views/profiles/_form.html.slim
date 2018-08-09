@@ -12,4 +12,8 @@ h2 = t('.profile')
   = f.input :time_zone, as: :time_zone, priority: /#{Time.zone.name}/, include_blank: false
   = f.association :subjects
   = f.file_field :avatar
+  = f.simple_fields_for :certifications do |certification|
+    = render 'certification_fields', f: certification
+  .links
+    = link_to_add_association t('.add_certification'), f, :certifications
   = f.button :submit, t('.submit')
