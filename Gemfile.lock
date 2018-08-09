@@ -122,6 +122,9 @@ GEM
     dotenv-rails (2.5.0)
       dotenv (= 2.5.0)
       railties (>= 3.2, < 6.0)
+    elementaljs-rails (0.0.13)
+      jquery-rails
+      railties (>= 3.1)
     erubi (1.7.1)
     execjs (2.7.0)
     factory_bot (4.10.0)
@@ -422,6 +425,7 @@ DEPENDENCIES
   decent_exposure
   devise
   dotenv-rails
+  elementaljs-rails
   factory_bot_rails
   faker
   ffaker
