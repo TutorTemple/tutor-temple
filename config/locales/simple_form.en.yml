@@ -22,6 +22,8 @@ en:
         last_name: Your last name
         phone_number: Your phone number
         languages: Select languages
+        degree: Your degree
+        institution: Your institution
 
     # Examples
     # labels:
