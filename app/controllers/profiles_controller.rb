@@ -27,6 +27,8 @@ class ProfilesController < ApplicationController
       :about_me, :avatar, :time_zone, languages: [], subject_ids: [],
                                       certifications_attributes: %i[id name institution attachment
                                                                     termination_date _destroy],
+                                      work_experiences_attributes: %i[id company_name title location
+                                                                      start_date end_date current_workplace _destroy],
                                       educations_attributes: Education.attribute_names.map(&:to_sym).push(:_destroy)
     ).merge(user_id: current_user.id).tap do |permitted_params|
       permitted_params[:languages]&.reject!(&:blank?)

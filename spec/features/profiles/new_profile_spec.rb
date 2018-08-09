@@ -30,7 +30,7 @@ RSpec.feature 'New profile', type: :feature do
         find('#profile_time_zone').select('Central America')
         find('#profile_subject_ids').select(subject.name)
         attach_file('profile[avatar]', Rails.root + 'spec/files/avatar.png')
-        click_link 'add education'
+        click_link I18n.t('.profiles.form.add_education')
         find("input[name*='degree']").set('Ph. D.')
         find("input[name*='institution']").set('CSTU')
         find("select[name*='year']").select('2013')

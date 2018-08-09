@@ -1,0 +1,8 @@
+.nested-fields
+  = f.input :company_name
+  = f.input :title
+  = f.input :location
+  = f.input :start_date, as: :select, collection: 1900..2023
+  = f.input :end_date, as: :select, collection: 1900..2023, input_html: { class: 'end_date' }
+  = f.input :current_workplace, input_html: { data: { behavior: 'TutorTemple.experienceCheckbox' } }
+  = link_to_remove_association t('.remove'), f

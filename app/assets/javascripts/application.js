@@ -16,7 +16,17 @@
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require rails-ujs
+//= require elemental
 //= require cocoon
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).on('change', '*[data-behavior="TutorTemple.experienceCheckbox"]', function (e) {
+  input = $(e.target).parents('.nested-fields').find('.end_date');
+  if (e.target.checked) {
+    input.prop('disabled', true);
+  } else {
+    input.prop('disabled', false);
+  }
+});

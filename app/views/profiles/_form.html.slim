@@ -2,6 +2,7 @@ h2 = t('.profile')
 = simple_form_for profile, url: url_for(action: action) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  = f.file_field :avatar
   = f.input :first_name
   = f.input :last_name
   = f.input :phone_number
@@ -11,13 +12,20 @@ h2 = t('.profile')
   = f.input :about_me
   = f.input :time_zone, as: :time_zone, priority: /#{Time.zone.name}/, include_blank: false
   = f.association :subjects
+
+  = f.simple_fields_for :work_experiences do |work_experience|
+    = render 'work_experience_fields', f: work_experience
+  .links
+    = link_to_add_association t('.add_work_experience'), f, :work_experiences
+
   = f.simple_fields_for :educations do |education|
     = render 'education_fields', f: education
   .links
-    = link_to_add_association 'add education', f, :educations
-  = f.file_field :avatar
+    = link_to_add_association t('.add_education'), f, :educations
+
   = f.simple_fields_for :certifications do |certification|
     = render 'certification_fields', f: certification
   .links
     = link_to_add_association t('.add_certification'), f, :certifications
+
   = f.button :submit, t('.submit')

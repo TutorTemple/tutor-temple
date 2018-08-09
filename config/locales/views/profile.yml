@@ -7,6 +7,8 @@ en:
       title: Edit Profile Page
       submit: Save Profile
       add_certification: + Add Certification
+      add_work_experience: '+ Add Work Experience'
+      add_education: '+ Add Education'
     certification_fields:
       remove: Remove
     error:
@@ -31,3 +33,5 @@ en:
       deletation: Deletion
     education_fields:
       confirm: 'Do you realy want to remove this education?'
+    work_experience_fields:
+      remove: Remove
