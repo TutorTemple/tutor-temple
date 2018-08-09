@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_08_103806) do
+ActiveRecord::Schema.define(version: 2018_08_09_124805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2018_08_08_103806) do
     t.string "graduating_year", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "education_type", default: 0, null: false
     t.index ["degree"], name: "index_educations_on_degree"
     t.index ["graduating_year"], name: "index_educations_on_graduating_year"
     t.index ["institution"], name: "index_educations_on_institution"
