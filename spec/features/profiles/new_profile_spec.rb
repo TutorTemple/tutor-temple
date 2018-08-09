@@ -11,7 +11,7 @@ RSpec.feature 'New profile', type: :feature do
         fill_in 'Email', with: user.email
         fill_in 'user_password', with: user.password
         fill_in 'user_password_confirmation', with: user.password
-        choose 'user_role_student'
+        find('label', text: 'Student').click
         check 'user_terms'
         click_on 'Sign Up'
       end
@@ -30,6 +30,10 @@ RSpec.feature 'New profile', type: :feature do
         find('#profile_time_zone').select('Central America')
         find('#profile_subject_ids').select(subject.name)
         attach_file('profile[avatar]', Rails.root + 'spec/files/avatar.png')
+        click_link 'add education'
+        find("input[name*='degree']").set('Ph. D.')
+        find("input[name*='institution']").set('CSTU')
+        find("select[name*='year']").select('2013')
         click_on 'Save Profile'
       end
       expect(page).to have_content('Dashboard')

@@ -1,0 +1,7 @@
+.nested-fields
+  .form-inline
+    = f.input :degree, label: false
+    = f.input :institution, label: false
+    = f.input :graduating_year, as: :select, collection: 2013..2023, label: false
+    = link_to_remove_association f, data: { confirm: t('.confirm') }, class: 'btn btn-primary btn-xs' do
+      = fa_icon :close

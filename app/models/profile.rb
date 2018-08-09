@@ -5,11 +5,13 @@ class Profile < ApplicationRecord
 
   belongs_to :user
   has_many :profile_subjects
-  has_many :subjects, through: :profile_subjects
+  has_many :subjects, through: :profile_subjects, dependent: :delete_all
   has_many :work_experiences, dependent: :destroy
   has_many :certifications, inverse_of: :profile, dependent: :destroy
+  has_many :educations, inverse_of: :profile, dependent: :destroy
 
   accepts_nested_attributes_for :certifications, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :educations, reject_if: :all_blank, allow_destroy: true
 
   store_accessor :meta, :languages
   store_accessor :meta, :time_zone

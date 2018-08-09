@@ -29,3 +29,5 @@ en:
       commenting: Commenting on posts
       sharing: Sharing posts
       deletation: Deletion
+    education_fields:
+      confirm: 'Do you realy want to remove this education?'

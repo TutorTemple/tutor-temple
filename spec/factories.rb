@@ -3,6 +3,12 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :education do
+    degree "Ph. D."
+    institution "CSTU"
+    graduating_year "1992"
+  end
+
   factory :user_authentication do
     user nil
     authentication_provider nil
@@ -10,6 +16,7 @@ FactoryBot.define do
   factory :authentication_provider do
     name 'MyString'
   end
+
   sequence(:email)          { Faker::Internet.email }
   sequence(:first_name)     { Faker::Name.first_name }
   sequence(:last_name)      { Faker::Cat.name }
