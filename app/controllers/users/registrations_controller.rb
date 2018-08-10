@@ -9,7 +9,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     yield resource if block_given?
     if resource_updated
       bypass_sign_in resource, scope: resource_name
-      respond_with resource, location: after_update_path_for(resource)
     else
       clean_up_passwords resource
       set_minimum_password_length
@@ -20,9 +19,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[terms role])
-  end
-
-  def after_update_path_for(_resource)
-    settings_path
   end
 end

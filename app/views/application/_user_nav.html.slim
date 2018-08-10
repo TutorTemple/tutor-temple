@@ -2,9 +2,9 @@ ul.navbar-nav
   li.nav-item.dropdown
     .d-flex.flex-row.justify-content-center.align-items-center data-toggle="dropdown"
       .dropdown-toggle.m-1
-      .thumbnail= cl_image_tag(current_profile.avatar.small)  if current_profile
+      .thumbnail= cl_image_tag(current_profile.avatar.small) if current_profile
     .dropdown-menu.dropdown-menu-right
-      = link_to t('.settings'), settings_path, class: 'dropdown-item'
+      = link_to t('.settings'), settings_path(anchor: :account), class: 'dropdown-item', data: {turbolinks: false}
       = link_to t('.profile'), profile_path, class: 'dropdown-item'
       = link_to t('.profile_edit'), edit_profile_path, class: 'dropdown-item'
       .dropdown-divider
