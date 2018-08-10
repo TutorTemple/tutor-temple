@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'New profile', type: :feature do
+RSpec.feature 'New profile', type: :feature, js: true do
   context 'create new user' do
     let(:user) { build(:student) }
     let!(:subject) { create(:subject) }
