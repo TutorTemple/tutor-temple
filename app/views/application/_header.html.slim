@@ -2,8 +2,8 @@ nav.navbar.navbar-dark.bg-primary.navbar-expand-lg.fixed-top
   .container-fluid
     .float-lg-left
       = link_to t('.title'), root_path, class: 'navbar-brand'
-    = form_tag search_path, method: :get, class: 'form-inline' do
-      = text_field_tag :search_query, params[:search_query], class: 'form-control mr-sm-2', placeholder: 'Find a tutor...'
-      = submit_tag "Search", name: nil, class: 'btn btn-outline-success my-2 my-sm-0'
+    = form_tag search_path, method: :get, id: 'header_search_form', class: 'form-inline' do
+      = text_field_tag :search_query, params[:search_query], id: 'header-search-query', class: 'form-control mr-sm-2', placeholder: t('.find_tutor')
+      = submit_tag t('.search'), name: nil, class: 'btn btn-outline-success my-2 my-sm-0'
     .float-lg-right
       = render user_signed_in? ? 'user_nav' : 'nav'

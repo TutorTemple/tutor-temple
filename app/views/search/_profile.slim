@@ -13,10 +13,10 @@
               h5.d-inline-block = t('.subject_list', subjects: profile.subjects.map(&:name).join(', '))
           .row
             .col
-              h5 = "#{t('.short_description')}: "
+              h5 = t('.short_description')
               p = profile.about_me
           div
-            = "#{t('.lessons_counted')}: "
-            span 404
+            => t('.lessons_conducted', count: '404')
+            = t('.reviews', count: '201')
         .col-3.d-flex.align-items-end
-          button.btn.btn-primary type="button"  View profile
+          button.btn.btn-primary type="button"  = t('.view_profile')

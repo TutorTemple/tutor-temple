@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SearchesController, type: :controller do
+RSpec.describe SearchController, type: :controller do
   let!(:profile) { create(:profile, :with_subject, first_name: 'John') }
   let!(:params) { { search_query: 'Jo' } }
 

@@ -1,0 +1,11 @@
+en:
+  search:
+    index:
+      search: Search
+      find_tutor: Find a tutor...
+    profile:
+      subject_list: "Subjects: %{subjects}"
+      short_description: "Short description:"
+      lessons_conducted: "Lessons conducted: %{count}"
+      reviews: "Reviews: %{count}"
+      view_profile: View profile

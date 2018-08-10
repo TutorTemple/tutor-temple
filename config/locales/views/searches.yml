@@ -1,7 +1,0 @@
-en:
-  searches:
-    profile:
-      subject_list: "Subjects: %{subjects}"
-      short_description: Short description
-      lessons_counted: Lessons counted
-      
