@@ -13,6 +13,7 @@ en:
       logout: Logout
       profile: Profile
       profile_edit: Profile Edit
+      settings: Settings
     sidebar:
       dashboard: Dashboard
     footer:

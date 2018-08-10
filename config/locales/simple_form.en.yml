@@ -24,6 +24,9 @@ en:
         languages: Select languages
         degree: Your degree
         institution: Your institution
+    hints:
+      defaults:
+        current_password: "we need your current password to confirm your changes"
 
     # Examples
     # labels:

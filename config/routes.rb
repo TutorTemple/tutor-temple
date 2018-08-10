@@ -12,14 +12,15 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :dashboard
-
-  resource :profile, except: %i[index destroy]
-  resources :tutors, only: %i[show]
-
-  get 'search', action: :index, controller: 'search'
-
   get ':page_name', controller: :pages,
                     action: :index,
                     constraints: { page_name: /(about|contacts|become_a_tutor|help|howitworks)/ }
+  get 'search', action: :index, controller: 'search'
+
+  resource :profile, except: %i[index destroy]
+  resource :settings, only: :show
+
+  resources :dashboard
+  resource :profile, except: %i[index destroy]
+  resources :tutors, only: %i[show]
 end

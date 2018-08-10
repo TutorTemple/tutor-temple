@@ -24,18 +24,34 @@ body {
   padding-top: 55px;
   padding-bottom: 55px;
   min-height: 100vh;
+  background-color: $gray-200;
+
+  nav {
+    max-height: 55px;
+  }
 
   &.signed-in {
-    padding-left: 10%;
+    padding-left: 7%;
+    padding-bottom: 0;
 
     #sidebar {
       position: fixed;
       top: 55px;
       left: 0;
       bottom: 0;
-      width: 10%;
-      font-size: .7em;
+      width: 7%;
+      font-size: 1vw;
       padding: 0;
+
+      i {
+        font-size: 4vw;
+      }
+
+      .nav-item {
+        .nav-link {
+          padding: 10% 2%;
+        }
+      }
     }
   }
 
@@ -79,5 +95,45 @@ body {
 
   input#user_role_student:checked ~ .social-signup .social-buttons#tutor_buttons {
     display: none;
+  }
+}
+
+.thumbnail {
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 50%;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.tabs {
+  .tab-content {
+    display: none;
+
+    & ~ .nav-tabs .nav-link {
+      background-color: $primary;
+      color: $white;
+      border-radius: 0;
+    }
+  }
+
+  @each $tab in account privacy notifications {
+    ##{$tab}.tab-content:target {
+      display: block !important;
+
+      & ~ .nav-tabs .nav-link[href="##{$tab}"] {
+        color: $primary;
+        background-color: $white;
+      }
+    }
+  }
+}
+
+.nav-tabs {
+  .nav-link:active {
+    background-color: $primary !important;
   }
 }

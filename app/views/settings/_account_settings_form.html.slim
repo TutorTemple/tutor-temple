@@ -1,0 +1,9 @@
+= simple_form_for resource, url: user_registration_path, html: {method: :patch}, remote: true do |f|
+  = f.error_notification
+  = f.input :email, required: true, autofocus: true
+  = f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false
+  = f.input :password_confirmation, required: false
+  = f.input :current_password, required: true
+  = f.button :submit, "Update"
+small
+  == "Unhappy? #{link_to "Cancel my account", registration_path(:user), data: {confirm: "Are you sure?"}, method: :delete}"

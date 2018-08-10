@@ -10,7 +10,7 @@ RSpec.feature 'New session', type: :feature do
     end
 
     scenario 'should be failure' do
-      sign_in(email: user.email, password: '1111111')
+      attempt_sign_in(email: user.email, password: '1111111')
       expect(page).to have_content('Forgot your password?')
     end
   end

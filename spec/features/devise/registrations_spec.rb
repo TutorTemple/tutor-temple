@@ -1,17 +1,29 @@
 require 'rails_helper'
 
 RSpec.feature 'Registrations', type: :feature do
-  context 'configure_sign_up_params' do
-    let(:user) { build(:student) }
+  describe 'sign up' do
+    %i[tutor student].each do |role|
+      context "as a #{role}" do
+        context 'with valid attributes' do
+          let(:new_user_attributes) { attributes_for(role).slice(:password, :email, :role).merge(terms: true) }
 
-    scenario 'should be successful' do
-      sign_up(email: user.email, password: user.password, terms: true)
-      expect(page).to have_content('Dashboard')
-    end
+          scenario do
+            sign_up(**new_user_attributes)
+            expect(page).to have_content('Dashboard')
+            expect(User.where(email: new_user_attributes[:email], role: role)).to exist
+          end
+        end
 
-    scenario 'should be failure' do
-      sign_up(email: user.email, password: user.password)
-      expect(page).to have_content('Terms must be accepted')
+        context 'without terms checked' do
+          let(:new_user_attributes) { attributes_for(role).slice(:password, :email, :role) }
+
+          scenario do
+            sign_up(**new_user_attributes)
+            expect(page).to have_content('Terms must be accepted')
+            expect(User.where(email: new_user_attributes[:email], role: role)).not_to exist
+          end
+        end
+      end
     end
   end
 end

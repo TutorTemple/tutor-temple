@@ -3,21 +3,6 @@
 require 'faker'
 
 FactoryBot.define do
-  factory :education do
-    education_type 1
-    degree "Ph. D."
-    institution "CSTU"
-    graduating_year "1992"
-  end
-
-  factory :user_authentication do
-    user nil
-    authentication_provider nil
-  end
-  factory :authentication_provider do
-    name 'MyString'
-  end
-
   sequence(:email)          { Faker::Internet.email }
   sequence(:first_name)     { Faker::Name.first_name }
   sequence(:last_name)      { Faker::Cat.name }
@@ -31,6 +16,22 @@ FactoryBot.define do
   sequence(:location)       { Faker::Fallout.location }
   sequence(:start_date)     { Faker::Date.between(2.years.ago, 1.years.ago) }
   sequence(:end_date)       { Faker::Date.between(2.month.ago, 1.month.ago) }
+
+  factory :education do
+    education_type 1
+    degree "Ph. D."
+    institution "CSTU"
+    graduating_year "1992"
+  end
+
+  factory :user_authentication do
+    user nil
+    authentication_provider nil
+  end
+
+  factory :authentication_provider do
+    name 'MyString'
+  end
 
   factory :user do
     email
