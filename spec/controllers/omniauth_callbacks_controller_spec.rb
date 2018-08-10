@@ -8,11 +8,7 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
     request.env['devise.mapping'] = Devise.mappings[:user]
     request.env['omniauth.auth'] = auth_params
     request.env['omniauth.params'] = user_params
-    allow(AuthenticationService).to receive(:create).with(
-      auth_params: auth_params,
-      current_user: nil,
-      user_params: user_params
-    ).and_return(user)
+    allow_any_instance_of(AuthenticationService).to receive(:create).and_return(user)
   end
 
   describe '#create_and_sign_in' do

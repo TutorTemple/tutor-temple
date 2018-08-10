@@ -12,12 +12,7 @@ RSpec.feature 'Account settings', type: :feature, js: true do
   end
 
   before do
-    visit new_user_session_path
-    within('form') do
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: user.password
-      click_on 'Log In'
-    end
+    sign_in(email: user.email, password: user.password)
     visit settings_path(anchor: :account)
   end
 
@@ -40,7 +35,7 @@ RSpec.feature 'Account settings', type: :feature, js: true do
         fill_in "user_#{attribute_name}", with: value
       end
       click_on 'Update'
-      sleep 0.4 # FIXME find workaround to not use #sleep in specs
+      sleep 0.4 # FIXME: find workaround to not use #sleep in specs
     end
   end
 

@@ -6,6 +6,6 @@ h2= t('.title')
   #notifications.tab-content.w-100.p-4.bg-white
     h3= t('.notifications_settings')
   ul.nav.nav-tabs.w-100
-    li.nav-item= link_to 'Account Settings', '#account', class: 'nav-link', data: {turbolinks: false}
-    li.nav-item= link_to 'Privacy settings', '#privacy', class: 'nav-link', data: {turbolinks: false}
-    li.nav-item= link_to 'Notification settings', '#notifications', class: 'nav-link', data: {turbolinks: false}
+    li.nav-item= link_to t('.account_settings'), '#account', class: 'nav-link', data: {turbolinks: false}
+    li.nav-item= link_to t('.privacy_settings'), '#privacy', class: 'nav-link', data: {turbolinks: false}
+    li.nav-item= link_to t('.notifications_settings'), '#notifications', class: 'nav-link', data: {turbolinks: false}
