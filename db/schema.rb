@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2018_08_09_124805) do
     t.string "graduating_year", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "education_type", default: 0, null: false
+    t.integer "education_type", null: false
     t.index ["degree"], name: "index_educations_on_degree"
     t.index ["graduating_year"], name: "index_educations_on_graduating_year"
     t.index ["institution"], name: "index_educations_on_institution"

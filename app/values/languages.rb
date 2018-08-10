@@ -73,4 +73,9 @@ module Languages
     cy: 'Welsh',
     xh: 'Xhosa'
   }.freeze
+  private_constant :ALL_LANGUAGES
+
+  def self.all
+    ALL_LANGUAGES
+  end
 end

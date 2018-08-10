@@ -1,0 +1,6 @@
+en:
+  educations:
+    type:
+      high_school: High school
+      college: College
+      university: University
