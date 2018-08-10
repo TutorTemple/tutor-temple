@@ -20,3 +20,7 @@ module AuthHelper
     end
   end
 end
+
+RSpec.configure do |config|
+  config.include AuthHelper, type: :feature
+end
