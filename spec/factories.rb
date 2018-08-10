@@ -4,6 +4,7 @@ require 'faker'
 
 FactoryBot.define do
   factory :education do
+    education_type 1
     degree "Ph. D."
     institution "CSTU"
     graduating_year "1992"
@@ -60,9 +61,14 @@ FactoryBot.define do
     birthday
     languages %w[en uk]
     time_zone Time.zone.name
+    with_education
 
     trait :with_subject do
       subjects { create_list :subject, 1 }
+    end
+
+    trait :with_education do
+      educations { build_list :education, 3 }
     end
   end
 

@@ -1,5 +1,6 @@
 .nested-fields
   .form-inline
+    = f.input :education_type, as: :select, collection: Education.education_types.keys.map { |s| [I18n.t(s, scope: [:educations, :type]), s] }, include_blank: false, label: false
     = f.input :degree, label: false
     = f.input :institution, label: false
     = f.input :graduating_year, as: :select, collection: 2013..2023, label: false
