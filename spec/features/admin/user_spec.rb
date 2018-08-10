@@ -5,12 +5,7 @@ RSpec.feature 'User Features', type: :feature do
     let(:user) { create(:admin) }
 
     before(:each) do
-      visit '/users/sign_in'
-      within('form') do
-        fill_in 'Email', with: user.email
-        fill_in 'Password', with: user.password
-      end
-      click_on 'Log In'
+      sign_in(email: user.email, password: user.password)
       visit '/admin'
       expect(page).to have_content('Dashboard')
     end

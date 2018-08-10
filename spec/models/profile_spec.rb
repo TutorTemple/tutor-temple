@@ -24,4 +24,22 @@ RSpec.describe Profile, type: :model do
 
     it { is_expected.to eq('Anna Brown') }
   end
+
+  describe '.search_profiles' do
+    let(:profile) { create(:profile, :with_subject, first_name: 'Joe', last_name: 'Brown') }
+
+    let!(:params) { 'Jo' }
+
+    subject { described_class.search_profiles(params) }
+
+    context 'search profile' do
+      it { is_expected.to include(profile) }
+    end
+
+    context 'search profile by subject' do
+      let!(:params) { profile.subjects.first.name }
+
+      it { is_expected.to include(profile) }
+    end
+  end
 end

@@ -1,0 +1,22 @@
+.card.my-3
+  .media.p-3
+    = image_tag profile.avatar.url(:medium), class: 'align-self-center mr-3 rounded-circle'
+    .media-body
+      .row
+        .col-9
+          h3.mt-0.d-inline-block = profile.full_name
+          .p-2.d-inline-block
+            - (1..5).each do
+              li.fa.fa-star
+          .row
+            .col
+              h5.d-inline-block = t('.subject_list', subjects: profile.subjects.map(&:name).join(', '))
+          .row
+            .col
+              h5 = t('.short_description')
+              p = profile.about_me
+          div
+            => t('.lessons_conducted', count: '404')
+            = t('.reviews', count: '201')
+        .col-3.d-flex.align-items-end
+          button.btn.btn-primary type="button"  = t('.view_profile')

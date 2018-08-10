@@ -6,20 +6,12 @@ RSpec.feature 'New profile', type: :feature do
     let!(:subject) { create(:subject) }
 
     before(:each) do
-      visit new_user_registration_path
-      within('form') do
-        fill_in 'Email', with: user.email
-        fill_in 'user_password', with: user.password
-        fill_in 'user_password_confirmation', with: user.password
-        find('label', text: 'Student').click
-        check 'user_terms'
-        click_on 'Sign Up'
-      end
+      sign_up(email: user.email, password: user.password, terms: true)
     end
 
     scenario 'should be successful' do
       visit new_profile_path
-      within('form') do
+      within('form.profile_form') do
         fill_in 'profile_first_name', with: 'Marko'
         fill_in 'profile_last_name', with: 'Polo'
         fill_in 'profile_phone_number', with: '122324'
@@ -41,7 +33,7 @@ RSpec.feature 'New profile', type: :feature do
 
     scenario 'should be failure' do
       visit new_profile_path
-      within('form') do
+      within('form.profile_form') do
         fill_in 'profile_first_name', with: 'Marko'
         fill_in 'profile_last_name', with: ''
         fill_in 'profile_phone_number', with: '122324'

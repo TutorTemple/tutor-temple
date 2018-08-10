@@ -4,6 +4,8 @@ en:
       title: Tutor Temple
     header:
       title: Tutor Temple
+      search: Search
+      find_tutor: Find a tutor...
     nav:
       login: Login
       sign_up: Sign Up

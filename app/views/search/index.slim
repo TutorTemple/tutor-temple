@@ -1,0 +1,12 @@
+.row-flex.pt-3
+  .col-2
+  .col-8
+    h2 = t('.search')
+
+    = form_tag search_path, method: :get, id: 'search_form' do
+      .input-group.mb-3
+        = text_field_tag :search_query, params[:search_query], class: 'form-control', placeholder: t('.find_tutor')
+        .input-group-append
+          = submit_tag t('.search'), name: nil, class: 'btn btn-primary'
+
+    = render partial: 'profile', collection: profiles
