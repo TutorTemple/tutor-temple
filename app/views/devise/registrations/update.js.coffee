@@ -1,1 +1,1 @@
-$('#account').html("<%= j(render 'settings/account_settings_form', resource: resource) %>")
+$('#account').html("<%= j(render 'settings/account_settings_form') %>")
